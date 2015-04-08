@@ -5,9 +5,10 @@ source "${HOME}/.dotfiles/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
-    #zgen load sindresorhus/pure
-    zgen load nojhan/liquidprompt
+    zgen load sindresorhus/pure
 
     # save all to init script
     zgen save
 fi
+
+alias l='ls -AlhG'
