@@ -4,6 +4,9 @@
     ~/.zshrc:     zshrc
     ~/.zsh:       zsh/
     ~/.gitconfig: gitconfig
+    ~/.vimrc:     vimrc
+    ~/.vim:       vim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [ln -sf ~/.dotfiles/vim-plug/plug.vim vim/autoload, Installing vim-plug]
