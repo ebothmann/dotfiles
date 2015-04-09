@@ -5,8 +5,5 @@
   name = Enrico Bothmann
   email = enrico.bothmann@phys.uni-goettingen.de
 
-[push]
-	default = simple
-
 [include]
   path = ~/.gitconfig_local
