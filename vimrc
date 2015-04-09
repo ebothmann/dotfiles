@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim-plug')
 
 Plug 'chriskempson/vim-tomorrow-theme'
 
