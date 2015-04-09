@@ -5,6 +5,7 @@ source "${HOME}/.dotfiles/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
+    zgen load rupa/z
     zgen load zsh-users/zsh-history-substring-search
 
     # save all to init script
