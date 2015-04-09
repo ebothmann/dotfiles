@@ -1,1 +1,0 @@
-/Users/eno/.dotfiles/vim-plug/plug.vim

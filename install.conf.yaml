@@ -9,4 +9,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [ln -sf ~/.dotfiles/vim-plug/plug.vim vim/autoload, Installing vim-plug]
+    - [mkdir -p ~/.vim/autoload, Creating vim autoload directory]
+    - [ln -sf ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload, Installing vim-plug]
