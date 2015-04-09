@@ -5,13 +5,24 @@ source "${HOME}/.dotfiles/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
+    zgen load zsh-users/zsh-history-substring-search
+
     # save all to init script
     zgen save
 fi
 
 # editor
 export EDITOR="vim"
+
+# history
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.history
+
+# key binding
 bindkey -v
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # completion rules:
 # 1. default
@@ -28,6 +39,7 @@ source "${HOME}/.zsh/prompt.zsh"
 
 # aliases
 alias l='ls -AlhG'
+alias lrt='l -rt'
 alias ga='git add'
 alias gc='git commit'
 alias gd='git diff'

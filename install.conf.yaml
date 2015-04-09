@@ -10,4 +10,4 @@
     - [git submodule update --init --recursive, Installing submodules]
     - [mkdir -p ~/.vim/autoload, Creating vim autoload directory]
     - [ln -sf ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload, Installing vim-plug]
-    - [mkdir ~/.zgen, Creating zgen directory]
+    - [mkdir -p ~/.zgen, Creating zgen directory]
