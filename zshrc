@@ -13,6 +13,13 @@ fi
 export EDITOR="vim"
 bindkey -v
 
+# completion rules:
+# 1. default
+# 2. case-insensitive
+# 3. e.g. 'f.b' -> 'foo.b'
+# 4. e.g. 'bar' -> 'foobar'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 # options
 setopt auto_cd
 
