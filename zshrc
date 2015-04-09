@@ -17,6 +17,7 @@ alias l='ls -AlhG'
 alias gd='git diff'
 alias gs='git status'
 alias gl='git log'
+alias gc='git commit'
 
 # local customization
 if [ -f ~/.zshrc_local ]; then
