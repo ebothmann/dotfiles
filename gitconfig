@@ -1,0 +1,9 @@
+[core]
+  excludesfile = ~/.gitignore_global
+
+[user]
+  name = Enrico Bothmann
+  email = enrico.bothmann@phys.uni-goettingen.de
+
+[include]
+  path = ~/.gitconfig_local

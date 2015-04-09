@@ -1,3 +1,5 @@
+# Copied from https://github.com/anishathalye/dotfiles/blob/master/zsh/prompt.zsh
+
 # User customizable options
 # PR_ARROW_CHAR="[some character]"
 # RPR_SHOW_USER=(true, false) - show username in rhs prompt

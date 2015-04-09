@@ -5,13 +5,20 @@ source "${HOME}/.dotfiles/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
-    #zgen load sindresorhus/pure
-
     # save all to init script
     zgen save
 fi
 
+# setup prompt
 source "${HOME}/.zsh/prompt.zsh"
 
+# aliases
 alias l='ls -AlhG'
+alias gd='git diff'
+alias gs='git status'
+alias gl='git log'
 
+# local customization
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
