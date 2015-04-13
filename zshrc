@@ -48,6 +48,7 @@ alias gc='git commit'
 alias gd='git diff'
 alias gl='git log'
 alias gs='git status'
+alias ta='tmux attach -t'
 
 # local customization
 if [ -f ~/.zshrc_local ]; then
