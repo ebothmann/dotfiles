@@ -4,4 +4,4 @@ Plug 'chriskempson/vim-tomorrow-theme'
 
 call plug#end()
 
-colorscheme Tomorrow
+colorscheme Tomorrow-Night
