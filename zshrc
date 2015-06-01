@@ -52,6 +52,9 @@ alias gl='git log'
 alias gs='git status'
 alias ta='tmux attach -t'
 
+# gitignore.io
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 # local customization
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
