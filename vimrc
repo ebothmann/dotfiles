@@ -6,6 +6,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
-colorscheme Tomorrow-Night
+colorscheme Tomorrow
 filetype plugin on
 let mapleader = ","
