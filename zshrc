@@ -51,6 +51,7 @@ alias gd='git diff'
 alias gl='git log'
 alias gs='git status'
 alias ta='tmux attach -t'
+alias f='z'
 
 # gitignore.io
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
