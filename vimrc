@@ -9,3 +9,4 @@ call plug#end()
 colorscheme Tomorrow
 filetype plugin on
 let mapleader = ","
+let NERDSpaceDelims=1
