@@ -56,7 +56,12 @@ alias f='z'
 # gitignore.io
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-# local customization
+# dotfiles_local customization
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
+fi
+
+# single machine customization
+if [ -f ~/.zshrc_single ]; then
+    source ~/.zshrc_single
 fi
