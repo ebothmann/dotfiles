@@ -7,6 +7,8 @@ if ! zgen saved; then
 
     zgen load rupa/z
     zgen load zsh-users/zsh-history-substring-search
+    zgen load mafredri/zsh-async
+    zgen load sindresorhus/pure
 
     # save all to init script
     zgen save
@@ -39,10 +41,8 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 # options
 setopt auto_cd
 
-# setup prompt
-source "${HOME}/.zsh/prompt.zsh"
-
 # aliases
+alias ls='ls -G'
 alias l='ls -AlhG'
 alias lrt='l -rt'
 alias ga='git add'
