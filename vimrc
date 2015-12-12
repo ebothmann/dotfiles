@@ -25,16 +25,15 @@ set history=50    " keep 50 lines of command line history
 set ruler   " show the cursor position all the time
 set showcmd   " display incomplete commands
 set incsearch   " do incremental searching
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
+set ignorecase   " do case-insensitive searching
 
 " Make use of german special keys in normal mode
 map ü <C-]>
-map ö [
-map ä ]
-map Ö {
-map Ä }
+" map ö [
+" map ä ]
+" map Ö {
+" map Ä }
+set langmap=ö[,ä],Ö{,Ä}
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -105,6 +104,7 @@ call plug#begin('~/.vim-plug')
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'klen/python-mode'
 
 call plug#end()
 
