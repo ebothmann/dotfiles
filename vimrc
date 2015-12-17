@@ -100,8 +100,7 @@ endif
 
 call plug#begin('~/.vim-plug')
 
-" Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'klen/python-mode'
@@ -111,9 +110,7 @@ call plug#end()
 " customize python-mode package
 let g:pymode_rope_complete_on_dot = 0
 
-" set background=dark
-" colorscheme solarized
-colorscheme Tomorrow
+colorscheme base16-default
 
 let mapleader = ","
 let NERDSpaceDelims=1
