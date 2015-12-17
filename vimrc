@@ -108,6 +108,9 @@ Plug 'klen/python-mode'
 
 call plug#end()
 
+" customize python-mode package
+let g:pymode_rope_complete_on_dot = 0
+
 " set background=dark
 " colorscheme solarized
 colorscheme Tomorrow
