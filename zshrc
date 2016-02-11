@@ -42,8 +42,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 setopt auto_cd
 
 # aliases
-alias ls='ls -G'
-alias l='ls -AlhG'
 alias lrt='l -rt'
 alias ga='git add'
 alias gc='git commit'
