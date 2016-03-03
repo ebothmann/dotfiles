@@ -104,6 +104,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'klen/python-mode'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -114,6 +115,7 @@ set background=dark
 colorscheme base16-default
 
 let mapleader = ","
+let maplocalleader = "-"
 let NERDSpaceDelims=1
 
 " Yank text to the OS X clipboard
