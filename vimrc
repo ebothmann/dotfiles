@@ -100,7 +100,8 @@ endif
 
 call plug#begin('~/.vim-plug')
 
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'klen/python-mode'
@@ -113,7 +114,8 @@ call plug#end()
 let g:pymode_rope_complete_on_dot = 0
 
 set background=light
-colorscheme base16-solarized
+colorscheme PaperColor
+let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
 
 let mapleader = ","
 let maplocalleader = "-"
