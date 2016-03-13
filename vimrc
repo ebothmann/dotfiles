@@ -105,14 +105,15 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'klen/python-mode'
 Plug 'lervag/vimtex'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
 " customize python-mode package
 let g:pymode_rope_complete_on_dot = 0
 
-set background=dark
-colorscheme base16-default
+set background=light
+colorscheme base16-solarized
 
 let mapleader = ","
 let maplocalleader = "-"
@@ -125,3 +126,8 @@ noremap <leader>Y "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" set up vimtex-skim sync
+let g:vimtex_view_general_viewer
+\ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '@line @pdf @tex'
