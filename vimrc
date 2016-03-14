@@ -24,8 +24,18 @@ endif
 set history=50    " keep 50 lines of command line history
 set ruler   " show the cursor position all the time
 set showcmd   " display incomplete commands
-set incsearch   " do incremental searching
-set ignorecase   " do case-insensitive searching
+
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
 " Make use of german special keys in normal mode
 map ü <C-]>
@@ -65,7 +75,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  autocmd FileType text setlocal textwidth=79
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -82,6 +92,14 @@ else
   set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set relativenumber
+set colorcolumn=85
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -115,7 +133,8 @@ let g:pymode_rope_complete_on_dot = 0
 
 set background=light
 colorscheme PaperColor
-let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
+let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' :
+            \ '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
 
 let mapleader = ","
 let maplocalleader = "-"
@@ -126,6 +145,9 @@ noremap <leader>y "*y
 noremap <leader>yy "*Y
 noremap <leader>Y "*Y
 
+nnoremap j gj
+nnoremap k gk
+
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
@@ -133,3 +155,15 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 let g:vimtex_view_general_viewer
 \ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_view_general_options = '@line @pdf @tex'
+
+" save on losing focus
+au FocusLost * :wa
+
+" use jj to get back to normal mode
+inoremap jj <ESC>
+
+" use Ctrl-hjkl to move between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
