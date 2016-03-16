@@ -198,11 +198,13 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 let NERDSpaceDelims=1
 
 " color scheme
-set background=light
-colorscheme PaperColor
+if &t_Co >= 256 || has("gui_running")
+  set background=light
+  colorscheme PaperColor
+  let g:airline_theme='PaperColor'
+endif
 
 " airline
-let g:airline_theme='PaperColor'
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
