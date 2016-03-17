@@ -14,9 +14,11 @@ endif
 
 " general
 set nocompatible                " do not use vi compatibility (do this first!)
-set undofile                    " enable persistent undo
+if has('undofile')
+    set undofile                " enable persistent undo
+endif
 if has('mouse')                 " enable mouse
-  set mouse=a
+    set mouse=a
 endif
 set encoding=utf-8
 set exrc                        " load local vim files ...
@@ -26,8 +28,12 @@ set secure                      " ... securely
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set showmatch                   " show matching brackets
-set relativenumber              " enable relative line numbers
-set colorcolumn=79
+if has('relativenumber')
+    set relativenumber          " enable relative line numbers
+endif
+if has('colorcolumn')
+    set colorcolumn=79
+endif
 set list                        " show invisibles (tabs, line endings etc.)
 set listchars=tab:▸\ ,trail:·   " choose symbols to show invisibles
 set laststatus=2
