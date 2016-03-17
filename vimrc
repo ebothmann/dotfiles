@@ -12,9 +12,6 @@ endif
 
 """"""""""""""""""""" settings """""""""""""""""""""""""""""""""""""""""""""""
 
-" load local vimrc files (securely)
-set exrc
-set secure
 " general
 set nocompatible                " do not use vi compatibility (do this first!)
 set undofile                    " enable persistent undo
@@ -22,6 +19,8 @@ if has('mouse')                 " enable mouse
   set mouse=a
 endif
 set encoding=utf-8
+set exrc                        " load local vim files ...
+set secure                      " ... securely
 
 " visuals
 set ruler                       " show the cursor position all the time
