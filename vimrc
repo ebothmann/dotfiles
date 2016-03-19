@@ -165,23 +165,31 @@ nmap <silent> <Leader>t :FSHere<cr>
 
 call plug#begin('~/.vim-plug')
 
-" Plug 'chriskempson/base16-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'scrooloose/nerdcommenter'
+" editing
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'klen/python-mode'
-Plug 'lervag/vimtex'
+Plug 'vim-scripts/ReplaceWithRegister'
+
+" navigating/interacting
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-fugitive'
+
+" styling
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" language support
+Plug 'klen/python-mode'
+Plug 'lervag/vimtex'
 Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'sh', 'python', 'vim'],
             \ 'do': './install.py --clang-completer'}
 autocmd! User YouCompleteMe if !has('vim_starting') |
             \ call youcompleteme#Enable() | endif
-
-Plug 'derekwyatt/vim-fswitch'
-Plug 'rking/ag.vim'
 
 call plug#end()
 
