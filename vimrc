@@ -14,7 +14,7 @@ endif
 
 " general
 set nocompatible                " do not use vi compatibility (do this first!)
-if has('undofile')
+if exists('+undofile')
     set undofile                " enable persistent undo
 endif
 if has('mouse')                 " enable mouse
@@ -28,10 +28,10 @@ set secure                      " ... securely
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set showmatch                   " show matching brackets
-if has('relativenumber')
+if exists("+relativenumber")
     set relativenumber          " enable relative line numbers
 endif
-if has('colorcolumn')
+if exists('+colorcolumn')
     set colorcolumn=79
 endif
 set list                        " show invisibles (tabs, line endings etc.)
@@ -107,8 +107,8 @@ endif
 
 """"""""""""""""""""" mappings """""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader = ","
-let maplocalleader = "-"
+let mapleader = "\<Space>"
+let maplocalleader = ","
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -146,6 +146,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" open file with CtrlP plug-in
+nnoremap <Leader>o :CtrlP<CR>
+
+" write/quit file
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+
+" manual YouCompleteMe loading
+nnoremap <leader>ycm :call EnableYCM()<cr>
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" toggle header/implementation file
+nmap <silent> <Leader>t :FSHere<cr>
 
 """"""""""""""""""""" plugins """"""""""""""""""""""""""""""""""""""""""""""""
 
@@ -165,6 +179,9 @@ Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'sh', 'python', 'vim'],
             \ 'do': './install.py --clang-completer'}
 autocmd! User YouCompleteMe if !has('vim_starting') |
             \ call youcompleteme#Enable() | endif
+
+Plug 'derekwyatt/vim-fswitch'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -192,7 +209,6 @@ function! EnableYCM()
     call plug#load('YouCompleteMe')
     call youcompleteme#Enable()
 endfunction
-nnoremap <leader>ycm :call EnableYCM()<cr>
 
 " set up vimtex-Skim sync
 let g:vimtex_view_general_viewer
