@@ -13,7 +13,6 @@ endif
 """"""""""""""""""""" settings """""""""""""""""""""""""""""""""""""""""""""""
 
 " general
-set nocompatible                " do not use vi compatibility (do this first!)
 if exists('+undofile')
     set undofile                " enable persistent undo
 endif
@@ -28,6 +27,7 @@ set secure                      " ... securely
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set showmatch                   " show matching brackets
+set number
 if exists("+relativenumber")
     set relativenumber          " enable relative line numbers
 endif
@@ -117,14 +117,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " disable highlighting
 nnoremap <leader>h :noh<cr>
 
-" yank text to the OS X clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-noremap <leader>Y "*Y
-
-" preserve indentation while pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
-
 " navigate through soft lines instead of hard lines
 nnoremap j gj
 nnoremap k gk
@@ -153,6 +145,9 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>qa :qa<CR>
+nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>wqa :wqa<CR>
 
 " manual YouCompleteMe loading
 nnoremap <leader>ycm :call EnableYCM()<cr>
@@ -171,12 +166,14 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'michaeljsmith/vim-indent-object'
 
 " navigating/interacting
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-system-copy'
 
 " styling
 Plug 'NLKNguyen/papercolor-theme'
