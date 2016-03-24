@@ -22,6 +22,8 @@ endif
 set encoding=utf-8
 set exrc                        " load local vim files ...
 set secure                      " ... securely
+set wildmenu                    " enable autocomplete menu as in zsh
+set wildmode=full
 
 " visuals
 set ruler                       " show the cursor position all the time
@@ -144,10 +146,6 @@ nnoremap <Leader>o :CtrlP<CR>
 " write/quit file
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>qa :qa<CR>
-nnoremap <Leader>wa :wa<CR>
-nnoremap <Leader>wqa :wqa<CR>
 
 " manual YouCompleteMe loading
 nnoremap <leader>ycm :call EnableYCM()<cr>
