@@ -109,8 +109,9 @@ endif
 
 """"""""""""""""""""" mappings """""""""""""""""""""""""""""""""""""""""""""""
 
+" use space and alt-space as leaders
 let mapleader = "\<Space>"
-let maplocalleader = ","
+let maplocalleader = "\<A-Space>"
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -119,20 +120,25 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " disable highlighting
 nnoremap <leader>h :noh<cr>
 
-" navigate through soft lines instead of hard lines
-nnoremap j gj
-nnoremap k gk
-
 " use Python-like regex
 nnoremap / /\v
 vnoremap / /\v
 
 " Make use of german special keys in normal mode
-map ü <C-]>
 set langmap=ö[,ä],Ö{,Ä}
-
-" use jj to get back to normal mode
-inoremap jj <ESC>
+nnoremap ü <C-]>
+nmap ö [
+nmap ä ]
+omap ö [
+omap ä ]
+xmap ö [
+xmap ä ]
+nmap Ö {
+nmap Ä }
+omap Ö {
+omap Ä }
+xmap Ö {
+xmap Ä }
 
 " use Ctrl-hjkl to move between windows
 nnoremap <C-h> <C-w>h
@@ -154,6 +160,9 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 " toggle header/implementation file
 nmap <silent> <Leader>t :FSHere<cr>
 
+" expand %% to the directory of the current buffer
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 """"""""""""""""""""" plugins """"""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim-plug')
@@ -172,6 +181,7 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-system-copy'
+Plug 'tpope/vim-unimpaired'
 
 " styling
 Plug 'NLKNguyen/papercolor-theme'
