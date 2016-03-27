@@ -68,6 +68,9 @@ if has("autocmd")
   " enable file type detection and settings
   filetype plugin indent on
 
+  " enable improved % command
+  runtime macros/matchit.vim
+
   " define customisations within an autocmd group
   augroup myvimrc
 
