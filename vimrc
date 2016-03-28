@@ -187,7 +187,9 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-unimpaired'
 
 " styling
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " language support
 Plug 'klen/python-mode'
@@ -234,6 +236,8 @@ let NERDSpaceDelims=1
 
 " color scheme
 if &t_Co >= 256 || has("gui_running")
+  let g:airline_powerline_fonts=1
   set background=light
-  colorscheme PaperColor
+  colorscheme solarized
+  call togglebg#map("<F5>")
 endif
