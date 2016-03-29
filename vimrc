@@ -187,7 +187,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-unimpaired'
 
 " styling
-Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -237,7 +237,6 @@ let NERDSpaceDelims=1
 " color scheme
 if &t_Co >= 256 || has("gui_running")
   let g:airline_powerline_fonts=1
-  set background=light
-  colorscheme solarized
-  call togglebg#map("<F5>")
+  set background=dark
+  colorscheme base16-default
 endif
