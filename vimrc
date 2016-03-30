@@ -239,5 +239,5 @@ let NERDSpaceDelims=1
 if &t_Co >= 256 || has("gui_running")
   let g:airline_powerline_fonts=1
   set background=light
-  colorscheme papercolor
+  colorscheme PaperColor
 endif
