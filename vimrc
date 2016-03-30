@@ -188,6 +188,7 @@ Plug 'tpope/vim-unimpaired'
 
 " styling
 Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -237,6 +238,6 @@ let NERDSpaceDelims=1
 " color scheme
 if &t_Co >= 256 || has("gui_running")
   let g:airline_powerline_fonts=1
-  set background=dark
-  colorscheme base16-default
+  set background=light
+  colorscheme papercolor
 endif
