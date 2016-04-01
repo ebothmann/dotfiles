@@ -88,9 +88,6 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
-  " save on losing focus
-  autocmd FocusLost * :wa
-
   augroup END
 else
   " at least enable auto-indenting otherwise
