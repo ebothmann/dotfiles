@@ -12,15 +12,18 @@ set smarttab
 
 set nrformats-=octal
 
+set ignorecase
+set smartcase
 set incsearch
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+set gdefault
+set hlsearch
 
 set laststatus=2
 set ruler 
 set wildmenu
+if exists('+colorcolumn')
+    set colorcolumn=79
+endif
 
 if !&scrolloff
   set scrolloff=1
@@ -33,6 +36,12 @@ set display+=lastline
 if &listchars ==# 'eol:$'
   set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
 endif
+
+" tabs
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j " Delete comment character when joining commented lines
@@ -55,13 +64,22 @@ endif
 " Break undo sequence before deleting with CTRL-U
 inoremap <C-U> <C-G>u<C-U>
 
+" load local vim files securely
+set exrc
+set secure
+
 call plug#begin('~/.vim-plug')
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/base16-vim'
 Plug 'lervag/vimtex'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
-set background=light
-colorscheme PaperColor
+set background=dark
+" colorscheme PaperColor
+colorscheme base16-harmonic16
 
 set langmap=ö[,ä],Ö{,Ä}
 nnoremap ü <C-]>
@@ -72,9 +90,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" set up vimtex-Skim sync
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+
+" customise vimtex-Skim
 let g:vimtex_view_general_viewer
     \ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_view_general_options = '@line @pdf @tex'
+let g:tex_flavor = 'latex'
+
+" toggle header/implementation file
+nmap <silent> <Leader>t :FSHere<cr>
 
 " vim:set ft=vim expandtab shiftwidth=2:
