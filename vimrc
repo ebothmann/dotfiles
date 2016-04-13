@@ -1,10 +1,4 @@
-" Enrico Bothmann's vim runtime configuration file.
-"
-" To use it on Unix, copy/link it to
-"
-"   ~/.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
+" Enrico Bothmann's vim runtime configuration file.  " " To use it on Unix, copy/link it to " "   ~/.vimrc " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
@@ -28,14 +22,13 @@ set wildmode=longest,full
 " visuals
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
-" set showmatch                   " show matching brackets
-" set number
-" if exists("+relativenumber")
-"     set relativenumber          " enable relative line numbers
-" endif
-if exists('+colorcolumn')
-    set colorcolumn=79
+set number
+if exists("+relativenumber")
+    set relativenumber          " enable relative line numbers
 endif
+" if exists('+colorcolumn')
+"     set colorcolumn=79
+" endif
 
 " show invisibles (tabs, line endings etc.)
 set list                        
@@ -175,13 +168,14 @@ Plug 'derekwyatt/vim-fswitch'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-system-copy'
-" Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " styling
-Plug 'chriskempson/base16-vim'
-" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+" Plug 'noahfrederick/vim-hemisu'
 
 " language support
 " Plug 'klen/python-mode'
@@ -226,7 +220,8 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 " color scheme
 if &t_Co >= 256 || has("gui_running")
   " let g:airline_powerline_fonts=1
-  set background=dark
-  " colorscheme PaperColor
-  colorscheme base16-harmonic16
+  set background=light
+  colorscheme PaperColor
+  " colorscheme base16-harmonic16
+  " colorscheme base16-codeschool
 endif
