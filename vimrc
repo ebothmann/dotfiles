@@ -172,10 +172,11 @@ Plug 'tpope/vim-unimpaired'
 
 " styling
 " Plug 'chriskempson/base16-vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'noahfrederick/vim-hemisu'
+Plug 'ajh17/Spacegray.vim'
 
 " language support
 " Plug 'klen/python-mode'
@@ -221,7 +222,8 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 if &t_Co >= 256 || has("gui_running")
   " let g:airline_powerline_fonts=1
   set background=light
-  colorscheme PaperColor
+  " colorscheme PaperColor
+  colorscheme spacegray
   " colorscheme base16-harmonic16
   " colorscheme base16-codeschool
 endif
