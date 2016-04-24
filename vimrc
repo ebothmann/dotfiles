@@ -1,39 +1,42 @@
-" Enrico Bothmann's vim runtime configuration file.  " " To use it on Unix, copy/link it to " "   ~/.vimrc " When started as "evim", evim.vim will already have done these settings.
+" vim runtime configuration file
+" to use it on Unix, copy/link it to ~/.vimrc
+
+" When started as evim, evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
 
 
-""""""""""""""""""""" settings """""""""""""""""""""""""""""""""""""""""""""""
+" =================== settings ===============================================
 
 " general
 if exists('+undofile')
-    set undofile                " enable persistent undo
+  set undofile                  " enable persistent undo
 endif
-if has('mouse')                 " enable mouse
-    set mouse=a
+if has('mouse')
+  set mouse=a                   " enable mouse
 endif
 set encoding=utf-8
-set exrc                        " load local vim files ...
-set secure                      " ... securely
 set wildmenu                    " enable autocomplete menu as in zsh
 set wildmode=longest,full
+set hidden                      " switch between buffers w/o having to save
+set splitbelow
+set splitright
 
 " visuals
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
+set laststatus=2                " always show status bar
 set number
 if exists("+relativenumber")
-    set relativenumber          " enable relative line numbers
+  set relativenumber            " enable relative line numbers
 endif
-" if exists('+colorcolumn')
-"     set colorcolumn=79
-" endif
-
-" show invisibles (tabs, line endings etc.)
-set list                        
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
-set laststatus=2
+set list                        " show non-printable characters
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
 
 " editing
 set backspace=indent,eol,start  " allow backspacing everything in insert mode
@@ -51,13 +54,13 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+set shiftwidth=4                " >> indents by 4 spaces
+set softtabstop=4               " tab key indents by 4 spaces
+set expandtab                   " use spaces instead of tabs
+set shiftround                  " >> indents to next multiple of 'shiftwidth'
 
 
-""""""""""""""""""""" auto-commands """"""""""""""""""""""""""""""""""""""""""
+" =================== auto-commands ==========================================
 
 if has("autocmd")
   " enable file type detection and settings
@@ -69,19 +72,16 @@ if has("autocmd")
   " define customisations within an autocmd group
   augroup myvimrc
 
-  " remove commands of this group (if vimrc is sourced more than once)
-  au!
+    " remove commands of this group (if vimrc is sourced more than once)
+    au!
 
-  " hard wrap after 78 characters
-  " autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " autocmd BufReadPost *
-  "   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-  "   \   exe "normal! g`\"" |
-  "   \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
   augroup END
 else
@@ -93,16 +93,16 @@ endif
 let g:tex_flavor = "latex"
 
 
-""""""""""""""""""""" command definitions """"""""""""""""""""""""""""""""""""
+" =================== command definitions ====================================
 
 " see the difference between the current buffer and its file
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-      \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 
-""""""""""""""""""""" mappings """""""""""""""""""""""""""""""""""""""""""""""
+" =================== mappings ===============================================
 
 " use space and alt-space as leaders
 let mapleader = "\<Space>"
@@ -150,7 +150,8 @@ nmap <silent> <Leader>t :FSHere<cr>
 " expand %% to the directory of the current buffer
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-""""""""""""""""""""" plugins """"""""""""""""""""""""""""""""""""""""""""""""
+
+" =================== plugins ================================================
 
 call plug#begin('~/.vim-plug')
 
@@ -158,29 +159,31 @@ call plug#begin('~/.vim-plug')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-" Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'terryma/vim-multiple-cursors'
 " Plug 'michaeljsmith/vim-indent-object'
 
 " navigating/interacting
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-fswitch'
+Plug 'tpope/vim-unimpaired'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-system-copy'
-Plug 'tpope/vim-unimpaired'
 
 " styling
+Plug 'ajh17/Spacegray.vim'
+Plug 'mhinz/vim-janah'
+Plug 'morhetz/gruvbox'
 " Plug 'chriskempson/base16-vim'
 " Plug 'NLKNguyen/papercolor-theme'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'noahfrederick/vim-hemisu'
-Plug 'ajh17/Spacegray.vim'
 
 " language support
-" Plug 'klen/python-mode'
 Plug 'lervag/vimtex'
+" Plug 'klen/python-mode'
 " Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'sh', 'python', 'vim'],
 "             \ 'do': './install.py --clang-completer'}
 " autocmd! User YouCompleteMe if !has('vim_starting') |
@@ -215,15 +218,23 @@ call plug#end()
 
 " set up vimtex-Skim sync
 let g:vimtex_view_general_viewer
-            \ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
+      \ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_view_general_options = '@line @pdf @tex'
 
-" color scheme
-if &t_Co >= 256 || has("gui_running")
+
+" =================== color scheme ===========================================
+if has("gui_running")
+  set background=dark
+  colorscheme gruvbox
+elseif &t_Co >= 256
+  set background=dark
+  colorscheme janah
   " let g:airline_powerline_fonts=1
-  set background=light
   " colorscheme PaperColor
-  colorscheme spacegray
+  " colorscheme spacegray
   " colorscheme base16-harmonic16
   " colorscheme base16-codeschool
 endif
+
+
+" vim: shiftwidth=2 softtabstop=2
