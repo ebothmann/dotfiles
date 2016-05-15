@@ -176,7 +176,7 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'mhinz/vim-janah'
 Plug 'morhetz/gruvbox'
 " Plug 'chriskempson/base16-vim'
-" Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'noahfrederick/vim-hemisu'
@@ -224,13 +224,14 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 if has("gui_running")
-  set background=dark
-  colorscheme gruvbox
+  set background=light
+  " colorscheme gruvbox
+  colorscheme PaperColor
 elseif &t_Co >= 256
-  set background=dark
-  colorscheme janah
+  set background=light
+  " colorscheme janah
   " let g:airline_powerline_fonts=1
-  " colorscheme PaperColor
+  colorscheme PaperColor
   " colorscheme spacegray
   " colorscheme base16-harmonic16
   " colorscheme base16-codeschool
