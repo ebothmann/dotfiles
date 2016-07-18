@@ -170,6 +170,7 @@ Plug 'tpope/vim-unimpaired'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-system-copy'
+Plug 'juneedahamed/vc.vim'
 
 " styling
 " Plug 'ajh17/Spacegray.vim'
@@ -225,10 +226,10 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 if has("gui_running")
-  set background=dark
+  set background=light
   " colorscheme gruvbox
   " colorscheme PaperColor
-  colorscheme solarized
+  " colorscheme solarized
 elseif &t_Co >= 256
   set background=dark
   " colorscheme janah
@@ -237,7 +238,7 @@ elseif &t_Co >= 256
   " colorscheme spacegray
   " colorscheme base16-harmonic16
   " colorscheme base16-codeschool
-  colorscheme solarized
+  " colorscheme solarized
 endif
 
 
