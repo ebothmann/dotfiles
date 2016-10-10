@@ -7,9 +7,14 @@
 
 [include]
   path = ~/.gitconfig_local
+
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
+
 [gui]
-	recentrepo = /Users/eno/Projekte/heppyplotlib
+  recentrepo = /Users/eno/Projekte/heppyplotlib
+
+[alias]
+  log-pretty = "log --graph --oneline --decorate --color"
