@@ -182,6 +182,7 @@ Plug 'juneedahamed/vc.vim'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'noahfrederick/vim-hemisu'
 Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
 
 " language support
 Plug 'lervag/vimtex'
@@ -231,7 +232,9 @@ if has("gui_running")
   " colorscheme PaperColor
   " colorscheme solarized
 elseif &t_Co >= 256
-  set background=dark
+  set background=light
+  colorscheme pencil
+  " let g:airline_theme='pencil'
   " colorscheme janah
   " let g:airline_powerline_fonts=1
   " colorscheme PaperColor
