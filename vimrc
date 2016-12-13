@@ -228,6 +228,7 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 " =================== color scheme ===========================================
 if has("gui_running")
   set background=light
+  colorscheme pencil
   " colorscheme gruvbox
   " colorscheme PaperColor
   " colorscheme solarized
