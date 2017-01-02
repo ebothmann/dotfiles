@@ -12,6 +12,7 @@ endif
 " general
 if exists('+undofile')
   set undofile                  " enable persistent undo
+  set undodir=~/.vim/undofiles  " store undo files centrally
 endif
 if has('mouse')
   set mouse=a                   " enable mouse
@@ -221,7 +222,7 @@ call plug#end()
 
 " set up vimtex-Skim sync
 let g:vimtex_view_general_viewer
-      \ = '/Users/eno/Applications/Skim.app/Contents/SharedSupport/displayline'
+      \ = '/usr/local/bin/displayline'
 let g:vimtex_view_general_options = '@line @pdf @tex'
 
 
