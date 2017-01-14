@@ -182,8 +182,9 @@ Plug 'juneedahamed/vc.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'noahfrederick/vim-hemisu'
-Plug 'altercation/vim-colors-solarized'
-Plug 'reedes/vim-colors-pencil'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'reedes/vim-colors-pencil'
+Plug 'raphamorim/lucario'
 
 " language support
 Plug 'lervag/vimtex'
@@ -228,14 +229,14 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 if has("gui_running")
-  set background=light
-  colorscheme pencil
+  set background=dark
+  colorscheme lucario
   " colorscheme gruvbox
   " colorscheme PaperColor
   " colorscheme solarized
 elseif &t_Co >= 256
-  set background=light
-  colorscheme pencil
+  set background=dark
+  colorscheme lucario
   " let g:airline_theme='pencil'
   " colorscheme janah
   " let g:airline_powerline_fonts=1

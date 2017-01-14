@@ -5,6 +5,7 @@
     ~/.zsh:       zsh/
     ~/.gitconfig: gitconfig
     ~/.vimrc:     vimrc
+    ~/.xvimrc:    xvimrc
     ~/.tmux.conf: tmux.conf
     ~/.inputrc:   inputrc
     ~/.editrc:    editrc
