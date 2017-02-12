@@ -141,12 +141,28 @@ nnoremap <C-l> <C-w>l
 " open file with CtrlP plug-in
 nnoremap <Leader>o :CtrlP<CR>
 
-" manual YouCompleteMe loading
-" nnoremap <leader>ycm :call EnableYCM()<cr>
-" nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" YCM
+nnoremap <Leader>ycm :call EnableYCM()<cr>
+nnoremap <Leader>jj :YcmCompleter GoTo<CR>
+nnoremap <Leader>jf :YcmCompleter GoToImprecise<CR>
+nnoremap <Leader>ji :YcmCompleter GoToInclude<CR>
+nnoremap <Leader>jh :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>jc :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gt :YcmCompleter GetType<CR>
+nnoremap <Leader>gp :YcmCompleter GetParent<CR>
+nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
+nnoremap <Leader>ff :YcmCompleter FixIt<CR>
 
 " toggle header/implementation file
 nmap <silent> <Leader>t :FSHere<cr>
+
+" toggle tag bar
+nmap <silent> <Leader>r :TagbarToggle<CR>
+
+" add space after commas in this line, preserving the previous search string
+" TODO: make sure the highlighting is restored if it was on (not only the
+" search string), and make it repeatable using vim-repeat plug-in
+" nnoremap <Leader>, :let old = @/<cr>:s/,\(\S\)/, \1/<cr>:let @/ = old<cr>:noh<cr>
 
 " expand %% to the directory of the current buffer
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -165,62 +181,79 @@ Plug 'vim-scripts/ReplaceWithRegister'
 " Plug 'michaeljsmith/vim-indent-object'
 
 " navigating/interacting
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+let g:easytags_auto_highlight = 0
+let g:easytags_async = 1
+Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_extensions = ['tag']
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'christoomey/vim-system-copy'
 Plug 'juneedahamed/vc.vim'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
 
 " styling
-" Plug 'ajh17/Spacegray.vim'
-" Plug 'mhinz/vim-janah'
-" Plug 'morhetz/gruvbox'
-" Plug 'chriskempson/base16-vim'
-" Plug 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/base16-vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-" Plug 'noahfrederick/vim-hemisu'
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'reedes/vim-colors-pencil'
-Plug 'raphamorim/lucario'
 
 " language support
 Plug 'lervag/vimtex'
 " Plug 'klen/python-mode'
-" Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'sh', 'python', 'vim'],
-"             \ 'do': './install.py --clang-completer'}
-" autocmd! User YouCompleteMe if !has('vim_starting') |
-"             \ call youcompleteme#Enable() | endif
+Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'tex'],
+            \ 'do': './install.py --clang-completer'}
 
 call plug#end()
+
+
+" =================== configure local_vimrc ==================================
+
+" white-list local vimrc files
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/scratch/sherpa')
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projects/scratch/sherpa')
+call lh#local_vimrc#munge('whitelist', $HOME.'/scratch/sherpa')
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/css-sort/rivet-2.5.2')
+
+
+" =================== configure completion ===================================
 
 " turn off py-mode completion, because we use YouCompleteMe instead
 " let g:pymode_rope_completion = 0
 
 " white-list some ycm extra configuration files
-" let g:ycm_extra_conf_globlist = ['~/Projekte/scratch/sherpa/*']
+let g:ycm_extra_conf_globlist = ['~/Projekte/scratch/sherpa/*']
 
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " make youcompleteme work with vimtex
-" if !exists('g:ycm_semantic_triggers')
-"   let g:ycm_semantic_triggers = {}
-" endif
-" let g:ycm_semantic_triggers.tex = [
-"       \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-"       \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-"       \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-"       \ 're!\\(include(only)?|input){[^}]*'
-"       \ ]
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+      \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+      \ 're!\\hyperref\[[^]]*',
+      \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+      \ 're!\\(include(only)?|input){[^}]*',
+      \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+      \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+      \ ]
 
 " manual YouCompleteMe loading
-" function! EnableYCM()
-"     call plug#load('YouCompleteMe')
-"     call youcompleteme#Enable()
-" endfunction
+function! EnableYCM()
+    call plug#load('YouCompleteMe')
+    call youcompleteme#Enable()
+endfunction
 
+
+" =================== configure vimtex =======================================
+"
 " set up vimtex-Skim sync
 let g:vimtex_view_general_viewer
       \ = '/usr/local/bin/displayline'
@@ -228,24 +261,13 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 
 " =================== color scheme ===========================================
-if has("gui_running")
-  set background=dark
-  colorscheme lucario
-  " colorscheme gruvbox
-  " colorscheme PaperColor
-  " colorscheme solarized
-elseif &t_Co >= 256
-  set background=dark
-  colorscheme lucario
-  " let g:airline_theme='pencil'
-  " colorscheme janah
-  " let g:airline_powerline_fonts=1
-  " colorscheme PaperColor
-  " colorscheme spacegray
-  " colorscheme base16-harmonic16
-  " colorscheme base16-codeschool
-  " colorscheme solarized
-endif
+
+set background=dark
+colorscheme base16-railscasts
+
+" if has("gui_running")
+" elseif &t_Co >= 256
+" endif
 
 
 " vim: shiftwidth=2 softtabstop=2
