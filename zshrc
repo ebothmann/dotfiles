@@ -41,21 +41,29 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 # options
 setopt auto_cd
 
-# aliases
+# shortcuts: general
 alias lrt='l -rt'
+alias ta='tmux attach -t'
+alias svim='vim -u NONE -N'  # open vim without ~/.vimrc, but enable nocompatible
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# shortcuts: version control
 alias ga='git add'
+alias sa='svn add'  # note that we overwrite a system binary by this
 alias gc='git commit'
+alias sc='svn commit'
 alias gd='git diff'
-alias sd='svn diff | colordiff | less -r'
+function sd() { svn diff $@ | colordiff | less -r ;}
 alias gl='git log'
+alias sl='svn log'
 alias glp='git log-pretty'
 alias gs='git status'
-alias ta='tmux attach -t'
-alias f='z'
-alias svim='vim -u NONE -N'  # open vim without ~/.vimrc, but enable nocompatible
+alias ss='svn status'
 
-# gitignore.io
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+# shortcuts: scan-build
+alias sb="scan-build"
+alias sbi="intercept-build --append"
+alias sba="analyze-build"
 
 # dotfiles_local customization
 if [ -f ~/.zshrc_local ]; then
