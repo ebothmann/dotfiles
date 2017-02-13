@@ -12,7 +12,9 @@ endif
 " general
 if exists('+undofile')
   set undofile                  " enable persistent undo
-  set undodir=~/.vim/undofiles  " store undo files centrally
+  set undodir=~/.vim/undofiles  " store undo files centrally ...
+  " ... and make sure the central location exists
+  if filewritable(&undodir) == 0 | call mkdir(&undodir, "p") | endif
 endif
 if has('mouse')
   set mouse=a                   " enable mouse
