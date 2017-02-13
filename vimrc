@@ -84,6 +84,11 @@ if has("autocmd")
       \   exe "normal! g`\"" |
       \ endif
 
+    " activate limelight hyper-focus writing when entering distraction free
+    " mode (goyo)
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
+
   augroup END
 else
   " at least enable auto-indenting otherwise
@@ -179,6 +184,8 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/ReplaceWithRegister'
 " Plug 'terryma/vim-multiple-cursors'
 " Plug 'michaeljsmith/vim-indent-object'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " navigating/interacting
 Plug 'xolox/vim-misc'
@@ -196,6 +203,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'juneedahamed/vc.vim'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/local_vimrc'
+Plug 'bogado/file-line'
+Plug 'christoomey/vim-tmux-navigator'
 
 " styling
 Plug 'chriskempson/base16-vim'
@@ -207,6 +216,7 @@ Plug 'lervag/vimtex'
 " Plug 'klen/python-mode'
 Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'tex'],
             \ 'do': './install.py --clang-completer'}
+Plug 'tmux-plugins/vim-tmux'
 
 call plug#end()
 
