@@ -149,7 +149,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>o :CtrlP<CR>
 
 " YCM
-nnoremap <Leader>ycm :call EnableYCM()<cr>
 nnoremap <Leader>jj :YcmCompleter GoTo<CR>
 nnoremap <Leader>jf :YcmCompleter GoToImprecise<CR>
 nnoremap <Leader>ji :YcmCompleter GoToInclude<CR>
@@ -173,6 +172,9 @@ nmap <silent> <Leader>r :TagbarToggle<CR>
 
 " expand %% to the directory of the current buffer
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" allow to use the dot command in visual mode
+vnoremap . :norm.<CR>
 
 
 " =================== plugins ================================================
@@ -207,16 +209,20 @@ Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/local_vimrc'
 Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " styling
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
 " language support
 Plug 'lervag/vimtex'
 " Plug 'klen/python-mode'
-Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'tex'],
+Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'tex', 'python'],
             \ 'do': './install.py --clang-completer'}
 Plug 'tmux-plugins/vim-tmux'
 
@@ -229,7 +235,7 @@ call plug#end()
 call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/scratch/sherpa')
 call lh#local_vimrc#munge('whitelist', $HOME.'/Projects/scratch/sherpa')
 call lh#local_vimrc#munge('whitelist', $HOME.'/scratch/sherpa')
-call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/css-sort/rivet-2.5.2')
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/quickshower')
 
 
 " =================== configure completion ===================================
@@ -257,12 +263,6 @@ let g:ycm_semantic_triggers.tex = [
       \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
       \ ]
 
-" manual YouCompleteMe loading
-function! EnableYCM()
-    call plug#load('YouCompleteMe')
-    call youcompleteme#Enable()
-endfunction
-
 
 " =================== configure vimtex =======================================
 "
@@ -274,12 +274,14 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 
-set background=dark
-colorscheme base16-railscasts
 
-" if has("gui_running")
-" elseif &t_Co >= 256
-" endif
+if has("gui_running")
+  set background=dark
+  colorscheme base16-railscasts
+elseif &t_Co >= 256
+  set background=dark
+  colorscheme default
+endif
 
 
 " vim: shiftwidth=2 softtabstop=2

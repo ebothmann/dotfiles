@@ -1,19 +1,3 @@
-# load zgen
-source "${HOME}/.dotfiles/zgen/zgen.zsh"
-
-# check if there's no init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen load rupa/z
-    zgen load zsh-users/zsh-history-substring-search
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
-
-    # save all to init script
-    zgen save
-fi
-
 # editor
 export EDITOR="vim"
 
@@ -31,6 +15,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# make mode-switching faster
+export KEYTIMEOUT=1
+
 # completion rules:
 # 1. default
 # 2. case-insensitive
@@ -45,6 +32,7 @@ setopt auto_cd
 alias lrt='l -rt'
 alias ta='tmux attach -t'
 alias svim='vim -u NONE -N'  # open vim without ~/.vimrc, but enable nocompatible
+alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # shortcuts: version control
@@ -73,4 +61,21 @@ fi
 # single machine customization
 if [ -f ~/.zshrc_single ]; then
     source ~/.zshrc_single
+fi
+
+# load zgen
+source "${HOME}/.dotfiles/zgen/zgen.zsh"
+
+# check if there's no init script
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen load rupa/z
+    zgen load zsh-users/zsh-history-substring-search
+    zgen load mafredri/zsh-async
+    zgen load sindresorhus/pure
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    # save all to init script
+    zgen save
 fi
