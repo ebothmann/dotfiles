@@ -185,6 +185,7 @@ call plug#begin('~/.vim-plug')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'  " adaptable abbreviations and replacements
 Plug 'vim-scripts/ReplaceWithRegister'
 " Plug 'terryma/vim-multiple-cursors'
 " Plug 'michaeljsmith/vim-indent-object'
@@ -213,11 +214,6 @@ Plug 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
-" styling
-" Plug 'chriskempson/base16-vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " language support
 Plug 'lervag/vimtex'
@@ -276,11 +272,11 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 
 if has("gui_running")
-  set background=dark
-  colorscheme base16-railscasts
+  set background=light
+  colorscheme 3024
 elseif &t_Co >= 256
-  set background=dark
-  colorscheme default
+  set background=light
+  colorscheme 3024
 endif
 
 
