@@ -27,6 +27,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 # options
 setopt auto_cd
+setopt extendedglob
 
 # shortcuts: general
 alias lrt='l -rt'
@@ -53,6 +54,11 @@ alias sb="scan-build"
 alias sbi="intercept-build --append"
 alias sba="analyze-build"
 
+# shortcuts: voltron
+function vsrc() {
+    voltron view command 'source list -a $rip -c 25' --lexer cpp
+}
+
 # dotfiles_local customization
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
@@ -71,10 +77,10 @@ if ! zgen saved; then
     echo "Creating a zgen save"
 
     zgen load rupa/z
-    zgen load zsh-users/zsh-history-substring-search
     zgen load mafredri/zsh-async
     zgen load sindresorhus/pure
     zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-history-substring-search
 
     # save all to init script
     zgen save
