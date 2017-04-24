@@ -19,40 +19,26 @@ endif
 if has('mouse')
   set mouse=a                   " enable mouse
 endif
-set encoding=utf-8
-set wildmenu                    " enable autocomplete menu as in zsh
-set wildmode=longest,full
-set hidden                      " switch between buffers w/o having to save
 set splitbelow
 set splitright
 
 " visuals
-set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
-set laststatus=2                " always show status bar
 set number
-if exists("+relativenumber")
-  set relativenumber            " enable relative line numbers
-endif
 set list                        " show non-printable characters
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
 else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
-
-" editing
-set backspace=indent,eol,start  " allow backspacing everything in insert mode
+set cursorline
 
 " search and replace
 set ignorecase                  " ignore case, but only if ...
 set smartcase                   " ... the search string is all lower-case
-set incsearch                   " jump to next match during search
-set gdefault                    " substitute all occurrences in a line per default
 
 " coloring (if colors available)
 if &t_Co > 2 || has("gui_running")
-  syntax on                     " enable syntax highlighting
   set hlsearch                  " enable last search pattern highlighting
 endif
 
@@ -62,42 +48,7 @@ set softtabstop=4               " tab key indents by 4 spaces
 set expandtab                   " use spaces instead of tabs
 set shiftround                  " >> indents to next multiple of 'shiftwidth'
 
-
-" =================== auto-commands ==========================================
-
-if has("autocmd")
-  " enable file type detection and settings
-  filetype plugin indent on
-
-  " enable improved % command
-  runtime macros/matchit.vim
-
-  " define customisations within an autocmd group
-  augroup myvimrc
-
-    " remove commands of this group (if vimrc is sourced more than once)
-    au!
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
-    " activate limelight hyper-focus writing when entering distraction free
-    " mode (goyo)
-    autocmd! User GoyoEnter Limelight
-    autocmd! User GoyoLeave Limelight!
-
-  augroup END
-else
-  " at least enable auto-indenting otherwise
-  set autoindent
-endif
-
-" set our tex format used most
+" set our default tex format
 let g:tex_flavor = "latex"
 
 
@@ -165,11 +116,6 @@ nmap <silent> <Leader>t :FSHere<cr>
 " toggle tag bar
 nmap <silent> <Leader>r :TagbarToggle<CR>
 
-" add space after commas in this line, preserving the previous search string
-" TODO: make sure the highlighting is restored if it was on (not only the
-" search string), and make it repeatable using vim-repeat plug-in
-" nnoremap <Leader>, :let old = @/<cr>:s/,\(\S\)/, \1/<cr>:let @/ = old<cr>:noh<cr>
-
 " expand %% to the directory of the current buffer
 cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -181,16 +127,17 @@ vnoremap . :norm.<CR>
 
 call plug#begin('~/.vim-plug')
 
+" base configuration
+Plug 'tpope/vim-sensible'
+
 " editing
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'  " adaptable abbreviations and replacements
 Plug 'vim-scripts/ReplaceWithRegister'
-" Plug 'terryma/vim-multiple-cursors'
-" Plug 'michaeljsmith/vim-indent-object'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-endwise'        " wisely add end/endfunction/endif
+Plug 'tommcdo/vim-exchange'     " exchange text regions with the cx operator
 
 " navigating/interacting
 Plug 'xolox/vim-misc'
@@ -199,13 +146,8 @@ let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_extensions = ['tag']
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
-" Plug 'rking/ag.vim'
-" Plug 'tpope/vim-fugitive'
-" Plug 'christoomey/vim-system-copy'
-Plug 'juneedahamed/vc.vim'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/local_vimrc'
 Plug 'bogado/file-line'
@@ -214,13 +156,20 @@ Plug 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+Plug 'farmergreg/vim-lastplace'
+" Plug 'tpope/vim-vinegar'
+
+" styling
+Plug 'lifepillar/vim-solarized8'
 
 " language support
 Plug 'lervag/vimtex'
-" Plug 'klen/python-mode'
 Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'tex', 'python'],
             \ 'do': './install.py --clang-completer'}
 Plug 'tmux-plugins/vim-tmux'
+
+" other
+Plug 'lifepillar/vim-cheat40'   " open cheat sheet with <leader>?
 
 call plug#end()
 
@@ -270,14 +219,23 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 
-
-if has("gui_running")
-  set background=light
-  colorscheme 3024
-elseif &t_Co >= 256
-  set background=light
-  colorscheme 3024
+if has('termguicolors')
+  set termguicolors
 endif
 
+colorscheme solarized8_light_flat
+let g:solarized_statusline = "low"
+let g:solarized_visibility = "normal"
+let g:solarized_term_italics = 1
+nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr>
+fun! Solarized8Contrast(delta)
+  let l:schemes = map(["_low", "_flat", "", "_high"], '"solarized8_".(&background).v:val')
+  exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
+endf
+nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
+nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
 
 " vim: shiftwidth=2 softtabstop=2
