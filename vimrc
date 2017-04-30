@@ -161,6 +161,9 @@ Plug 'farmergreg/vim-lastplace'
 
 " styling
 Plug 'lifepillar/vim-solarized8'
+Plug 'AlessandroYorba/Sidonia'
+Plug 'KabbAmine/yowish.vim'
+Plug 'atelierbram/Base2Tone-vim'
 
 " language support
 Plug 'lervag/vimtex'
@@ -181,6 +184,7 @@ call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/scratch/sherpa')
 call lh#local_vimrc#munge('whitelist', $HOME.'/Projects/scratch/sherpa')
 call lh#local_vimrc#munge('whitelist', $HOME.'/scratch/sherpa')
 call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/quickshower')
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/scratch/hej')
 
 
 " =================== configure completion ===================================
@@ -189,7 +193,7 @@ call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte/quickshower')
 " let g:pymode_rope_completion = 0
 
 " white-list some ycm extra configuration files
-let g:ycm_extra_conf_globlist = ['~/Projekte/scratch/sherpa/*']
+let g:ycm_extra_conf_globlist = ['~/Projekte/scratch/sherpa/*', '~/Projekte/scratch/hej/*']
 
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -219,23 +223,28 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 
-if has('termguicolors')
-  set termguicolors
-endif
+" see http://colorswat.ch/vim/list
 
-colorscheme solarized8_light_flat
-let g:solarized_statusline = "low"
-let g:solarized_visibility = "normal"
-let g:solarized_term_italics = 1
-nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
-    \ ? substitute(g:colors_name, 'dark', 'light', '')
-    \ : substitute(g:colors_name, 'light', 'dark', '')
-    \ )<cr>
-fun! Solarized8Contrast(delta)
-  let l:schemes = map(["_low", "_flat", "", "_high"], '"solarized8_".(&background).v:val')
-  exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
-endf
-nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
-nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
+" set termguicolors
+" let g:solarized_statusline = "low"
+" let g:solarized_visibility = "normal"
+" let g:solarized_term_italics = 1
+" nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
+"     \ ? substitute(g:colors_name, 'dark', 'light', '')
+"     \ : substitute(g:colors_name, 'light', 'dark', '')
+"     \ )<cr>
+" fun! Solarized8Contrast(delta)
+"   let l:schemes = map(["_low", "_flat", "", "_high"], '"solarized8_".(&background).v:val')
+"   exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
+" nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
+" nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
+" colorscheme solarized8_dark_flat
+" colorscheme solarized8_light_flat
+
+" set termguicolors
+" colorscheme sidonia
+
+set termguicolors
+colorscheme Base2Tone_MorningLight
 
 " vim: shiftwidth=2 softtabstop=2
