@@ -32,6 +32,8 @@ setopt extendedglob
 # shortcuts: general
 alias lrt='l -rt'
 alias ta='tmux attach -t'
+alias tls='tmux ls'
+alias tnew='tmux new -s'
 alias svim='vim -u NONE -N'  # open vim without ~/.vimrc, but enable nocompatible
 alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
