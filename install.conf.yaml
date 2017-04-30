@@ -9,9 +9,16 @@
     ~/.tmux.conf: tmux.conf
     ~/.inputrc:   inputrc
     ~/.editrc:    editrc
+    ~/.config/nvim/init.vim:    init.vim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [mkdir -p ~/.vim/autoload, Creating vim autoload directory]
+    - [mkdir -p ~/.config/nvim, Creating NeoVim config directory]
     - [ln -sf ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload, Installing vim-plug]
     - [mkdir -p ~/.zgen, Creating zgen directory]
+    - [mkdir -p ./dein, Creating dein directory]
+    - ["curl
+      https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+      > dein/installer.sh", Loading dein installer]
+    - [sh dein/installer.sh dein]
