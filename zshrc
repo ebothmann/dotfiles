@@ -1,5 +1,5 @@
 # editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # history
 HISTSIZE=2000
@@ -30,6 +30,8 @@ setopt auto_cd
 setopt extendedglob
 
 # shortcuts: general
+alias v='nvim'
+alias v.='v .'
 alias lrt='l -rt'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
