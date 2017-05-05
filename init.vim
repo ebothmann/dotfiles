@@ -1,7 +1,16 @@
-" configuration for NeoVim
+" configuration for NeoVim and vim
 
 
 " =================== settings ===============================================
+
+let isneovim = (v:progname =~? "nvim")
+
+if !isneovim
+  if &compatible
+    set nocompatible
+  endif
+  set incsearch
+endif
 
 " general
 set splitbelow
@@ -9,7 +18,9 @@ set splitright
 
 " visuals
 set number
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 set list                        " show non-printable characters
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
@@ -42,9 +53,11 @@ if dein#load_state("~/.dotfiles/dein/repos/github.com/Shougo/dein.vim")
   call dein#add('morhetz/gruvbox')
 
   " completion
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Rip-Rip/clang_complete',
-        \ {'on_ft': ['c', 'cpp']})
+  if isneovim
+      call dein#add('Shougo/deoplete.nvim')
+      call dein#add('Rip-Rip/clang_complete',
+                  \ {'on_ft': ['c', 'cpp']})
+  endif
 
   " navigation
   call dein#add('farmergreg/vim-lastplace')
@@ -80,17 +93,30 @@ let g:clang_use_library = 1
 let g:clang_library_path='/usr/local/opt/llvm/lib/'
 
 " configure denite file_rec source
-call denite#custom#var('file_rec', 'command',
-      \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+if executable('ag')
+    call denite#custom#var('file_rec', 'command',
+                \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+endif
 
 " configure denite grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['-i', '--vimgrep', '--follow'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+if executable('ag')
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts',
+                \ ['-i', '--vimgrep', '--follow'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+elseif executable('ack')
+    call denite#custom#var('grep', 'command', ['ack'])
+    call denite#custom#var('grep', 'default_opts',
+            \ ['--ackrc', $HOME.'/.ackrc', '-H',
+            \  '--nopager', '--nocolor', '--nogroup', '--column'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--match'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
 
 " configure localvimrc
 let g:localvimrc_sandbox=0
@@ -103,6 +129,9 @@ let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
 " colorscheme Base2Tone_MorningLight
 set background=light
 let g:gruvbox_italic=1
+if !has('termguicolors')
+  let g:gruvbox_termcolors=16
+endif
 colorscheme gruvbox
 
 
