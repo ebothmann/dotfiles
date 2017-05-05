@@ -23,6 +23,9 @@ set splitbelow
 set splitright
 
 " visuals
+if has('termguicolors')
+  set termguicolors
+endif
 set showcmd                     " display incomplete commands
 set number
 set list                        " show non-printable characters
@@ -164,6 +167,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'AlessandroYorba/Sidonia'
 Plug 'KabbAmine/yowish.vim'
 Plug 'atelierbram/Base2Tone-vim'
+Plug 'morhetz/gruvbox'
 
 " language support
 Plug 'lervag/vimtex'
@@ -223,28 +227,12 @@ let g:vimtex_view_general_options = '@line @pdf @tex'
 
 " =================== color scheme ===========================================
 
-" see http://colorswat.ch/vim/list
-
-" set termguicolors
-" let g:solarized_statusline = "low"
-" let g:solarized_visibility = "normal"
-" let g:solarized_term_italics = 1
-" nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
-"     \ ? substitute(g:colors_name, 'dark', 'light', '')
-"     \ : substitute(g:colors_name, 'light', 'dark', '')
-"     \ )<cr>
-" fun! Solarized8Contrast(delta)
-"   let l:schemes = map(["_low", "_flat", "", "_high"], '"solarized8_".(&background).v:val')
-"   exe "colors" l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
-" nmap <leader>- :<c-u>call Solarized8Contrast(-v:count1)<cr>
-" nmap <leader>+ :<c-u>call Solarized8Contrast(+v:count1)<cr>
-" colorscheme solarized8_dark_flat
-" colorscheme solarized8_light_flat
-
-" set termguicolors
-" colorscheme sidonia
-
-set termguicolors
-colorscheme Base2Tone_MorningLight
+" colorscheme Base2Tone_MorningLight
+if !has('termguicolors')
+  let g:gruvbox_termcolors=16
+endif
+set background=light
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " vim: shiftwidth=2 softtabstop=2
