@@ -20,6 +20,7 @@
     ~/.vimrc:     init.vim
     ~/.xvimrc:    xvimrc
     ~/.tmux.conf: tmux.conf
+    ~/.config/tmux: tmux
     ~/.inputrc:   inputrc
     ~/.editrc:    editrc
     ~/.config/nvim/init.vim:    init.vim
