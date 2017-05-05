@@ -21,4 +21,5 @@
     - ["curl
       https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
       > dein/installer.sh", Loading dein installer]
-    - [sh dein/installer.sh dein]
+    - [sh dein/installer.sh dein, Installing dein package manager]
+    - [tic xterm-256color-italic.terminfo, Setting up italics support]
