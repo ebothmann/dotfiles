@@ -14,10 +14,6 @@ HISTFILE=~/.history
 
 # key binding
 bindkey -v
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # make mode-switching faster
 export KEYTIMEOUT=1
@@ -93,3 +89,11 @@ if ! zgen saved; then
     # save all to init script
     zgen save
 fi
+
+# only bind history-substring search keys here, otherwise
+# zsh-syntax-highlighting warns, cf.
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/340
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
