@@ -13,3 +13,6 @@
 [submodule "vim/pack/navigation/start/vim-tmux-navigator"]
 	path = vim/pack/navigation/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "vim/pack/editing/start/ReplaceWithRegister"]
+	path = vim/pack/editing/start/ReplaceWithRegister
+	url = https://github.com/vim-scripts/ReplaceWithRegister
