@@ -5,16 +5,31 @@
 
 let isneovim = (v:progname =~? "nvim")
 
-if !isneovim
-  if &compatible
-    set nocompatible
+if isneovim
+  " reproduce what defaults.vim does in vim
+  set ruler
+  set showcmd
+  set scrolloff=5
+  map Q gq
+  inoremap <C-U> <C-G>u<C-U>
+  let c_comment_strings=1
+  if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+          \ | wincmd p | diffthis
   endif
+else
+  unlet! skip_defaults_vim
+  source $VIMRUNTIME/defaults.vim
   set incsearch
+  set history=10000
+  set display=lastline
+  set nolangremap
 endif
 
 " general
 set splitbelow
 set splitright
+set hidden
 
 " visuals
 set number
@@ -34,6 +49,14 @@ set smartcase                   " ... the search string is all lower-case
 set ttimeout
 set ttimeoutlen=10
 
+" cscope
+set cscopetagorder=1
+set cscopetag
+if filereadable("cscope.out")
+  set nocscopeverbose
+  cscope add cscope.out
+  set cscopeverbose
+endif
 
 " =================== plugins ================================================
 
@@ -69,17 +92,22 @@ if dein#load_state("~/.dotfiles/dein/repos/github.com/Shougo/dein.vim")
 
   " editing
   call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-repeat')
   call dein#add('vim-scripts/ReplaceWithRegister')
 
   " language support
   call dein#add('keith/tmux.vim')
+
+  " mappings
+  call dein#add('tpope/vim-unimpaired')
 
   call dein#end()
   call dein#save_state()
 endif
 
 filetype plugin indent on
-syntax enable
+syntax on
 
 " configure deoplete
 let g:deoplete#enable_at_startup = 1
@@ -167,19 +195,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>h :nohlsearch<cr>
 
 " Make use of german special keys in normal mode
-set langmap=ö[,ä],Ö{,Ä}
-nnoremap ü <C-]>
-nmap ö [
-nmap ä ]
-omap ö [
-omap ä ]
-xmap ö [
-xmap ä ]
-nmap Ö {
-nmap Ä }
-omap Ö {
-omap Ä }
-xmap Ö {
-xmap Ä }
+set langmap=ü[,+]
 
 " vim: shiftwidth=2 softtabstop=2 expandtab
