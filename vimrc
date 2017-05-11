@@ -12,3 +12,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 set langmap=ü[,+]
+
+set termguicolors
+set background=light
+let g:gruvbox_italic=1
+colorscheme gruvbox
