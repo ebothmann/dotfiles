@@ -3,6 +3,7 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [mkdir -p ~/.zgen, Creating zgen directory]
+    - [mkdir -p vim/undo, Creating vim undo directory]
     - [tic xterm-256color-italic.terminfo, Setting up italics support]
 
 - link:

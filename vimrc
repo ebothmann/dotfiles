@@ -28,3 +28,6 @@ let mapleader = "\<Space>"
 nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <Leader>rr <Plug>ReplaceWithRegisterLine
 xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
+
+set undofile
+set undodir=~/.vim/undo
