@@ -2,25 +2,16 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [mkdir -p ~/.vim/autoload, Creating vim autoload directory]
-    - [mkdir -p ~/.config/nvim, Creating NeoVim config directory]
-    - [ln -sf ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload, Installing vim-plug]
     - [mkdir -p ~/.zgen, Creating zgen directory]
-    - [mkdir -p ./dein, Creating dein directory]
-    - ["curl
-      https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
-      > dein/installer.sh", Loading dein installer]
-    - [sh dein/installer.sh dein, Installing dein package manager]
     - [tic xterm-256color-italic.terminfo, Setting up italics support]
 
 - link:
-    ~/.zshrc:     zshrc
-    ~/.zsh:       zsh/
-    ~/.gitconfig: gitconfig
-    ~/.vimrc:     init.vim
-    ~/.xvimrc:    xvimrc
-    ~/.tmux.conf: tmux.conf
+    ~/.zshrc:       zshrc
+    ~/.zsh:         zsh/
+    ~/.gitconfig:   gitconfig
+    ~/.vimrc:       vimrc
+    ~/.vim:         vim
+    ~/.tmux.conf:   tmux.conf
     ~/.config/tmux: tmux
-    ~/.inputrc:   inputrc
-    ~/.editrc:    editrc
-    ~/.config/nvim/init.vim:    init.vim
+    ~/.inputrc:     inputrc
+    ~/.editrc:      editrc

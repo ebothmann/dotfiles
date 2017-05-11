@@ -1,9 +1,5 @@
 # editor
-if type nvim >/dev/null 2>/dev/null; then
-    export EDITOR="nvim"
-else
-    export EDITOR="vim"
-fi
+export EDITOR="vim"
 
 # history
 HISTSIZE=2000
@@ -36,7 +32,7 @@ alias lrt='l -rt'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tnew='tmux new -s'
-alias svim='vim -u NONE -N'  # open vim without ~/.vimrc, but enable nocompatible
+alias svim='vim -u NONE -N'  # open vim without ~/.vimrc or defaults.vim, but enable nocompatible
 alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 

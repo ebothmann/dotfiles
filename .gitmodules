@@ -7,3 +7,6 @@
 [submodule "vim-plug"]
 	path = vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "vim/pack/colors/opt/gruvbox"]
+	path = vim/pack/colors/opt/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
