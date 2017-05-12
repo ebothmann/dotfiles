@@ -6,6 +6,8 @@ set splitright
 
 set hidden
 
+set hlsearch
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -28,6 +30,8 @@ let mapleader = "\<Space>"
 nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <Leader>rr <Plug>ReplaceWithRegisterLine
 xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
+
+nmap <Leader>h :nohlsearch<CR>
 
 set undofile
 set undodir=~/.vim/undo
