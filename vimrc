@@ -14,7 +14,7 @@ nnoremap <C-l> <C-w>l
 set langmap=ü[,+]
 
 set termguicolors
-set background=light
+set background=dark
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
@@ -31,3 +31,10 @@ xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
 
 set undofile
 set undodir=~/.vim/undo
+
+" configure localvimrc
+let g:localvimrc_sandbox=0
+let g:localvimrc_whitelist=$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*'
+let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
+
+" vim: ts=4 sw=4

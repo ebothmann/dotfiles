@@ -16,3 +16,6 @@
 [submodule "vim/pack/editing/start/ReplaceWithRegister"]
 	path = vim/pack/editing/start/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister
+[submodule "vim/pack/editing/start/localvimrc"]
+	path = vim/pack/editing/start/localvimrc
+	url = https://github.com/embear/vim-localvimrc
