@@ -14,6 +14,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 set langmap=ü[,+]
+set langnoremap
 
 set termguicolors
 set background=dark
