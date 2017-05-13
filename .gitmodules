@@ -19,6 +19,6 @@
 [submodule "vim/pack/editing/start/localvimrc"]
 	path = vim/pack/editing/start/localvimrc
 	url = https://github.com/embear/vim-localvimrc
-[submodule "vim/pack/editing/start/unimpaired"]
-	path = vim/pack/editing/start/unimpaired
-	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/pack/mappings/start/unimpaired"]
+	path = vim/pack/mappings/start/unimpaired
+	url = https://github.com/ebothmann/vim-unimpaired
