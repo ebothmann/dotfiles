@@ -8,6 +8,9 @@ set hidden
 
 set hlsearch
 
+set wildignorecase
+set wildmode=longest,full
+
 " configure vim for a german keyboard layout
 "
 " NOTE: CTRL-ä is ESC, CTRL-ö is CTRL-\, CTRL-ü is not available (and neither
