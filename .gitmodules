@@ -22,3 +22,6 @@
 [submodule "vim/pack/mappings/start/unimpaired"]
 	path = vim/pack/mappings/start/unimpaired
 	url = https://github.com/ebothmann/vim-unimpaired
+[submodule "vim/pack/navigation/start/rooter"]
+	path = vim/pack/navigation/start/rooter
+	url = https://github.com/airblade/vim-rooter.git
