@@ -64,7 +64,8 @@ set undodir=~/.vim/undo
 
 " configure localvimrc
 let g:localvimrc_sandbox=0
-let g:localvimrc_whitelist=$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*'
+let g:localvimrc_whitelist=[$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*',
+			\ $HOME.'/Projekte/sherpa-workshop-report/.*']
 let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
 
 " configure tmux-navigator
