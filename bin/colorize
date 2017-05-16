@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [[ -z "$SSH_CLIENT" && "$TERM_PROGRAM" == "iTerm.app" ]]; then
+  value=$1
+  if [[ -z "$value" && -e $HOME/.coloroverride ]]; then
+    value=$(cat $HOME/.coloroverride)
+  fi
+
+  if [[ -z "$value" ]]; then
+    hour=$(date +"%H")
+    if [[ "$hour" -ge "$BACKGROUND_LIGHT_HOUR" && "$hour" -lt "$BACKGROUND_DARK_HOUR" ]]; then
+      value="light"
+    else
+      value="dark"
+    fi
+  fi
+
+  if [[ -z "$TMUX" ]]; then
+    echo -en "\033]50;SetProfile=$value\a"
+  else
+    echo -en "\033Ptmux;\033\033]50;SetProfile=$value\a\033\\"
+  fi
+fi

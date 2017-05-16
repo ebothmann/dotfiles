@@ -41,8 +41,20 @@ xmap Ä }
 " we have not used ü so far, let's make that our replacement for CTRL-]
 nnoremap ü <C-]>
 
+" set background dynamically according to override file or day time
+if filereadable($HOME."/.coloroverride")
+	let g:coloroverride = readfile($HOME."/.coloroverride")[0]
+	let &background=g:coloroverride
+else
+	let hour = strftime("%H")
+	if +$BACKGROUND_LIGHT_HOUR <= hour && hour < +$BACKGROUND_DARK_HOUR
+		set background=light
+	else
+		set background=dark
+	endif
+endif
+
 set termguicolors
-set background=dark
 let g:gruvbox_italic=1
 colorscheme gruvbox
 

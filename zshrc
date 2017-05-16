@@ -1,3 +1,11 @@
+DOTFILES_PATH="${HOME}/.dotfiles"
+
+path=("${DOTFILES_PATH}/bin" $path)
+export PATH
+
+export BACKGROUND_LIGHT_HOUR=5
+export BACKGROUND_DARK_HOUR=21
+
 # editor
 export EDITOR="vim"
 
@@ -70,7 +78,7 @@ if [ -f ~/.zshrc_single ]; then
 fi
 
 # load zgen
-source "${HOME}/.dotfiles/zgen/zgen.zsh"
+source "${DOTFILES_PATH}/zgen/zgen.zsh"
 
 # check if there's no init script
 if ! zgen saved; then
