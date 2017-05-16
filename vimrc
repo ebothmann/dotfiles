@@ -1,5 +1,9 @@
+" use defaults.vim, but remove jump to last position autocmd, since we use the
+" lastplace plug-in, which keeps the cursor on the first line for commit
+" messages
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
+augroup vimStartup | au! | augroup END
 
 set splitbelow
 set splitright

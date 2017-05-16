@@ -25,3 +25,6 @@
 [submodule "vim/pack/navigation/start/rooter"]
 	path = vim/pack/navigation/start/rooter
 	url = https://github.com/airblade/vim-rooter.git
+[submodule "vim/pack/navigation/start/lastplace"]
+	path = vim/pack/navigation/start/lastplace
+	url = https://github.com/vim-scripts/vim-lastplace.git
