@@ -8,6 +8,7 @@ if [[ -z "$SSH_CLIENT" && "$TERM_PROGRAM" == "iTerm.app" ]]; then
 
   if [[ -z "$value" ]]; then
     hour=$(date +"%H")
+    hour=$((10#$hour))
     if [[ "$hour" -ge "$BACKGROUND_LIGHT_HOUR" && "$hour" -lt "$BACKGROUND_DARK_HOUR" ]]; then
       value="light"
     else
