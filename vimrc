@@ -97,6 +97,14 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', 'configure.ac']
 
 " configure implementation/header switcher
-"nmap <Leader>t :call CurtineIncSw()\<CR\>
+nmap <silent> <Leader>of :FSHere<cr>
+nmap <silent> <Leader>ol :FSRight<cr>
+nmap <silent> <Leader>oL :FSSplitRight<cr>
+nmap <silent> <Leader>oh :FSLeft<cr>
+nmap <silent> <Leader>oH :FSSplitLeft<cr>
+nmap <silent> <Leader>ok :FSAbove<cr>
+nmap <silent> <Leader>oK :FSSplitAbove<cr>
+nmap <silent> <Leader>oj :FSBelow<cr>
+nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " vim: ts=4 sw=4

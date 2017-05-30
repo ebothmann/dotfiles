@@ -38,3 +38,7 @@
 	path = vim/pack/navigation/start/lastplace
 	url = https://github.com/vim-scripts/vim-lastplace.git
         ignore = dirty
+[submodule "vim/pack/navigation/start/fswitch"]
+	path = vim/pack/navigation/start/fswitch
+	url = https://github.com/derekwyatt/vim-fswitch.git
+        ignore = dirty
