@@ -82,7 +82,8 @@ set undodir=~/.vim/undo
 let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist=[$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*',
 			\ $HOME.'/Projekte/sherpa-workshop-report/.*',
-			\ $HOME.'/Projekte/sherpa-paper/.*']
+			\ $HOME.'/Projekte/sherpa-paper/.*',
+			\ $HOME.'/Projekte/quickshower/quickshower/.*']
 let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
 
 " configure tmux-navigator
@@ -94,5 +95,8 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " configure rooter
 let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', 'configure.ac']
+
+" configure implementation/header switcher
+"nmap <Leader>t :call CurtineIncSw()\<CR\>
 
 " vim: ts=4 sw=4
