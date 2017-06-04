@@ -42,3 +42,6 @@
 	path = vim/pack/navigation/start/fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
         ignore = dirty
+[submodule "vim/pack/navigation/wiki"]
+	path = vim/pack/navigation/wiki
+	url = https://github.com/vimwiki/vimwiki.git
