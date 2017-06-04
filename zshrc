@@ -6,6 +6,8 @@ export PATH
 export BACKGROUND_LIGHT_HOUR=5
 export BACKGROUND_DARK_HOUR=21
 
+export TERMINFO="${DOTFILES_PATH}"
+
 # editor
 export EDITOR="vim"
 
