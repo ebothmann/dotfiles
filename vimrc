@@ -77,4 +77,11 @@ nmap <silent> <Leader>oK :FSSplitAbove<cr>
 nmap <silent> <Leader>oj :FSBelow<cr>
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
+" configure wiki
+let g:vimwiki_list = [{'path': '~/wiki/text/',
+			\ 'path_html': '~/wiki/html/',
+			\ 'template_path': '~/wiki/templates/',
+			\ 'template_default': 'def_template',
+			\ 'template_ext': '.html'}]
+
 " vim: ts=4 sw=4
