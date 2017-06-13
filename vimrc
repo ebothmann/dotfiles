@@ -15,22 +15,7 @@ set hlsearch
 set wildignorecase
 set wildmode=longest,full
 
-" set background dynamically according to override file or day time
-if filereadable($HOME."/.coloroverride")
-	let g:coloroverride = readfile($HOME."/.coloroverride")[0]
-	let &background=g:coloroverride
-else
-	let hour = strftime("%H")
-	if +$BACKGROUND_LIGHT_HOUR <= hour && hour < +$BACKGROUND_DARK_HOUR
-		set background=light
-	else
-		set background=dark
-	endif
-endif
-
-set termguicolors
-let g:gruvbox_italic=1
-colorscheme gruvbox
+colorscheme nova
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over

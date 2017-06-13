@@ -41,3 +41,8 @@
 [submodule "vim/pack/navigation/wiki"]
 	path = vim/pack/navigation/start/wiki
 	url = https://github.com/vimwiki/vimwiki.git
+        ignore = dirty
+[submodule "vim/pack/colors/opt/nova"]
+	path = vim/pack/colors/opt/nova
+	url = https://github.com/trevordmiller/nova-vim.git
+        ignore = dirty
