@@ -6,10 +6,6 @@
 	path = zgen
 	url = https://github.com/tarjoilija/zgen.git
         ignore = dirty
-[submodule "vim/pack/colors/opt/gruvbox"]
-	path = vim/pack/colors/opt/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
-        ignore = dirty
 [submodule "vim/pack/navigation/start/vim-tmux-navigator"]
 	path = vim/pack/navigation/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
