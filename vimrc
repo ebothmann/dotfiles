@@ -1,3 +1,9 @@
+" do not bother with old versions
+if v:version < 800
+    source $HOME/.vim/sensible/plugin/sensible.vim
+	finish
+endif
+  
 " use defaults.vim, but remove jump to last position autocmd, since we use the
 " lastplace plug-in, which keeps the cursor on the first line for commit
 " messages
