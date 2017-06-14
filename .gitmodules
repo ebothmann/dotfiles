@@ -20,7 +20,7 @@
         ignore = dirty
 [submodule "vim/pack/mappings/start/unimpaired"]
 	path = vim/pack/mappings/start/unimpaired
-	url = https://github.com/ebothmann/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
         ignore = dirty
 [submodule "vim/pack/navigation/start/rooter"]
 	path = vim/pack/navigation/start/rooter
