@@ -45,3 +45,8 @@
 [submodule "vim/sensible"]
 	path = vim/sensible
 	url = https://github.com/tpope/vim-sensible.git
+        ignore = dirty
+[submodule "vim/pack/editing/start/surround"]
+	path = vim/pack/editing/start/surround
+	url = https://github.com/tpope/vim-surround.git
+        ignore = dirty
