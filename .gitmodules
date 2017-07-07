@@ -50,3 +50,7 @@
 	path = vim/pack/editing/start/surround
 	url = https://github.com/tpope/vim-surround.git
         ignore = dirty
+[submodule "vim/pack/navigation/start/randomtag"]
+	path = vim/pack/navigation/start/randomtag
+	url = https://github.com/mhinz/vim-randomtag.git
+        ignore = dirty
