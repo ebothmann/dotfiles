@@ -21,6 +21,8 @@ set hlsearch
 set wildignorecase
 set wildmode=longest,full
 
+set laststatus=2
+
 colorscheme nova
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
