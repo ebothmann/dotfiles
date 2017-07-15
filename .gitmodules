@@ -54,3 +54,7 @@
 	path = vim/pack/navigation/start/randomtag
 	url = https://github.com/mhinz/vim-randomtag.git
         ignore = dirty
+[submodule "vim/pack/files/start/recover"]
+	path = vim/pack/files/start/recover
+	url = https://github.com/chrisbra/Recover.vim.git
+        ignore = dirty
