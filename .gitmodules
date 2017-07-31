@@ -58,3 +58,7 @@
 	path = vim/pack/files/start/recover
 	url = https://github.com/chrisbra/Recover.vim.git
         ignore = dirty
+[submodule "vim/pack/editing/start/repeat"]
+	path = vim/pack/editing/start/repeat
+	url = https://github.com/tpope/vim-repeat.git
+        ignore = dirty
