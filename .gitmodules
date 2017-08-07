@@ -62,3 +62,7 @@
 	path = vim/pack/editing/start/repeat
 	url = https://github.com/tpope/vim-repeat.git
         ignore = dirty
+[submodule "vim/pack/editing/start/argumentative"]
+	path = vim/pack/editing/start/argumentative
+	url = https://github.com/PeterRincker/vim-argumentative.git
+        ignore = dirty
