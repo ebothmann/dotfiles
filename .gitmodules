@@ -66,3 +66,11 @@
 	path = vim/pack/editing/start/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
         ignore = dirty
+[submodule "vim/pack/interface/start/airline"]
+	path = vim/pack/interface/start/airline
+	url = https://github.com/vim-airline/vim-airline.git
+        ignore = dirty
+[submodule "vim/pack/interface/start/tmuxline"]
+	path = vim/pack/interface/start/tmuxline
+	url = https://github.com/edkolev/tmuxline.vim.git
+        ignore = dirty
