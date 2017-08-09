@@ -23,6 +23,7 @@ set wildmode=longest,full
 
 set laststatus=2
 
+set termguicolors
 colorscheme nova
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
