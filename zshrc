@@ -1,7 +1,5 @@
 DOTFILES_PATH="${HOME}/.dotfiles"
 
-export TERM=xterm-256color-italic
-
 path=("${DOTFILES_PATH}/bin" $path)
 export PATH
 
@@ -42,7 +40,6 @@ alias tnew='tmux new -s'
 alias svim='vim -u NONE -N'  # open vim without ~/.vimrc or defaults.vim, but enable nocompatible
 alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-alias ssh="TERM=xterm-256color ssh"  # discard italics when ssh'ing
 
 # shortcuts: version control
 alias ga='git add'
