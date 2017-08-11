@@ -1,15 +1,17 @@
 " do not bother with old versions
 if v:version < 800
-    source $HOME/.vim/sensible/plugin/sensible.vim
+	source $HOME/.vim/sensible/plugin/sensible.vim
 	finish
 endif
-  
+
 " use defaults.vim, but remove jump to last position autocmd, since we use the
 " lastplace plug-in, which keeps the cursor on the first line for commit
 " messages
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
-augroup vimStartup | au! | augroup END
+augroup vimStartup
+	au!
+augroup END
 
 set splitbelow
 set splitright
@@ -26,7 +28,9 @@ set noshowmode
 
 set termguicolors
 
+let g:airline_theme='sol'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:tmuxline_powerline_separators = 1
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
