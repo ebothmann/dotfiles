@@ -36,7 +36,7 @@ alias v.='v .'
 alias lrt='l -rt'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
-alias tnew='tmux new -s'
+function tproj() { mkdir -p "$HOME/Projekte/$@" && tmux new-session -c "$HOME/Projekte/$@" -s "$@" ;}
 alias svim='vim -u NONE -N'  # open vim without ~/.vimrc or defaults.vim, but enable nocompatible
 alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
