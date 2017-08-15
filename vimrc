@@ -54,7 +54,8 @@ let g:localvimrc_sandbox=0
 let g:localvimrc_whitelist=[$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*',
 			\ $HOME.'/Projekte/sherpa-workshop-report/.*',
 			\ $HOME.'/Projekte/sherpa-paper/.*',
-			\ $HOME.'/Projekte/quickshower/quickshower/.*']
+			\ $HOME.'/Projekte/quickshower/quickshower/.*',
+			\ $HOME.'/Projekte/single-tops/paper/.*']
 let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
 
 " configure tmux-navigator
