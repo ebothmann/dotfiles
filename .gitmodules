@@ -78,3 +78,11 @@
 	path = vim/pack/interface/start/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
         ignore = dirty
+[submodule "vim/pack/completion/start/youcompleteme"]
+	path = vim/pack/completion/start/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
+        ignore = dirty
+[submodule "vim/pack/files/start/pandoc-syntax"]
+	path = vim/pack/files/start/pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+        ignore = dirty
