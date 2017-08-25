@@ -86,9 +86,4 @@ let g:vimwiki_list = [{'path': '~/wiki/text/',
 			\ 'template_default': 'def_template',
 			\ 'template_ext': '.html'}]
 
-" configure pandoc syntax
-augroup pandoc_syntax
-	au! BufNewFile,BufFilePre,BufRead *.in.md set filetype=markdown.pandoc
-augroup END
-
 " vim: ts=4 sw=4
