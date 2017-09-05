@@ -27,11 +27,7 @@ set laststatus=2
 set noshowmode
 
 set termguicolors
-
-let g:airline_theme='sol'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:tmuxline_powerline_separators = 1
+set bg=light
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over
