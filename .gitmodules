@@ -62,3 +62,6 @@
 	path = vim/pack/editing/start/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
         ignore = dirty
+[submodule "vim/pack/colors/opt/iceberg"]
+	path = vim/pack/colors/opt/iceberg
+	url = https://github.com/cocopon/iceberg.vim.git

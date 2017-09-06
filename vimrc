@@ -27,7 +27,8 @@ set laststatus=2
 set noshowmode
 
 set termguicolors
-set bg=light
+set bg=dark
+colorscheme iceberg
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over
