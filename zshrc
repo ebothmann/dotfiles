@@ -9,8 +9,8 @@ export EDITOR="vim"
 # history
 HISTSIZE=2000
 SAVEHIST=2000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
 HISTFILE=~/.history
 
 # key binding
