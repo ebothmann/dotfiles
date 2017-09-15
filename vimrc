@@ -30,6 +30,13 @@ set termguicolors
 set bg=dark
 colorscheme iceberg
 
+hi! StatusLine gui=reverse guibg=#E4AA80 guifg=#0f1117
+hi! StatusLineTerm gui=reverse guibg=#E4AA80 guifg=#0f1117
+hi! StatusLineNC gui=reverse guibg=#3e445e guifg=#0f1117
+hi! TabLine gui=NONE guibg=#0f1117 guifg=#3e445e
+hi! TabLineFill gui=reverse guibg=#3e445e guifg=#0f1117
+hi! TabLineSel gui=NONE guibg=#E4AA80 guifg=#0f1117
+
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over
 " the default map leader being the backslash)
