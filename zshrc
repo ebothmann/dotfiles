@@ -74,22 +74,16 @@ if [ -f ~/.zshrc_single ]; then
     source ~/.zshrc_single
 fi
 
-# load zgen
-source "${DOTFILES_PATH}/zgen/zgen.zsh"
+# load plug-ins using zplug
+source "${DOTFILES_PATH}/zplug/init.zsh"
+zplug "rupa/z", at:772db28548  # pull-request (#199) commit fixes #198
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
 
-# check if there's no init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen load rupa/z
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-history-substring-search
-
-    # save all to init script
-    zgen save
-fi
+# Then, source plugins and add commands to $PATH
+zplug load
 
 # only bind history-substring search keys here, otherwise
 # zsh-syntax-highlighting warns, cf.
