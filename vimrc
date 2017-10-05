@@ -27,15 +27,15 @@ set laststatus=2
 set noshowmode
 
 set termguicolors
-set bg=dark
-colorscheme iceberg
+colorscheme base16-classic-light
 
-hi! StatusLine gui=reverse guibg=#E4AA80 guifg=#0f1117
-hi! StatusLineTerm gui=reverse guibg=#E4AA80 guifg=#0f1117
-hi! StatusLineNC gui=reverse guibg=#3e445e guifg=#0f1117
-hi! TabLine gui=NONE guibg=#0f1117 guifg=#3e445e
-hi! TabLineFill gui=reverse guibg=#3e445e guifg=#0f1117
-hi! TabLineSel gui=NONE guibg=#E4AA80 guifg=#0f1117
+" modifications for iceberg colorscheme
+" hi! StatusLine gui=reverse guibg=#E4AA80 guifg=#0f1117
+" hi! StatusLineTerm gui=reverse guibg=#E4AA80 guifg=#0f1117
+" hi! StatusLineNC gui=reverse guibg=#3e445e guifg=#0f1117
+" hi! TabLine gui=NONE guibg=#0f1117 guifg=#3e445e
+" hi! TabLineFill gui=reverse guibg=#3e445e guifg=#0f1117
+" hi! TabLineSel gui=NONE guibg=#E4AA80 guifg=#0f1117
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over
@@ -55,11 +55,7 @@ set undodir=~/.vim/undo
 
 " configure localvimrc
 let g:localvimrc_sandbox=0
-let g:localvimrc_whitelist=[$HOME.'/Projekte/scratch/\(sherpa\|hej\)/.*',
-			\ $HOME.'/Projekte/sherpa-workshop-report/.*',
-			\ $HOME.'/Projekte/sherpa-paper/.*',
-			\ $HOME.'/Projekte/quickshower/quickshower/.*',
-			\ $HOME.'/Projekte/single-tops/paper/.*']
+let g:localvimrc_persistent=2
 let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
 
 " configure tmux-navigator
