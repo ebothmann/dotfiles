@@ -51,7 +51,7 @@ function sd() { svn diff $@ | colordiff | less -r ;}
 alias gl='git log'
 alias sl='svn log'
 alias glp='git log-pretty'
-alias gs='git status'
+alias gs='git status -s'
 alias ss='svn status'
 
 # shortcuts: scan-build

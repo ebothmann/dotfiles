@@ -27,7 +27,8 @@ set laststatus=2
 set noshowmode
 
 set termguicolors
-colorscheme base16-classic-light
+colorscheme default
+set background=light
 
 " modifications for iceberg colorscheme
 " hi! StatusLine gui=reverse guibg=#E4AA80 guifg=#0f1117

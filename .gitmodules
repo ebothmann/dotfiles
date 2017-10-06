@@ -58,30 +58,6 @@
 	path = vim/pack/editing/start/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
         ignore = dirty
-[submodule "vim/pack/colors/opt/iceberg"]
-	path = vim/pack/colors/opt/iceberg
-	url = https://github.com/cocopon/iceberg.vim.git
-        ignore = dirty
-[submodule "vim/pack/colors/opt/solarized8"]
-	path = vim/pack/colors/opt/solarized8
-	url = https://github.com/lifepillar/vim-solarized8.git
-        ignore = dirty
-[submodule "vim/pack/colors/opt/one"]
-	path = vim/pack/colors/opt/one
-	url = https://github.com/rakr/vim-one.git
-        ignore = dirty
-[submodule "vim/pack/colors/opt/hemisu"]
-	path = vim/pack/colors/opt/hemisu
-	url = https://github.com/noahfrederick/vim-hemisu.git
-        ignore = dirty
-[submodule "vim/pack/colors/opt/nord"]
-	path = vim/pack/colors/opt/nord
-	url = https://github.com/arcticicestudio/nord-vim.git
-        ignore = dirty
-[submodule "vim/pack/colors/opt/base16"]
-	path = vim/pack/colors/opt/base16
-	url = https://github.com/chriskempson/base16-vim.git
-        ignore = dirty
 [submodule "zplug"]
 	path = zplug
 	url = https://github.com/zplug/zplug
