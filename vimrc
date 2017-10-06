@@ -26,25 +26,7 @@ set wildmode=longest,full
 set laststatus=2
 set noshowmode
 
-set termguicolors
-colorscheme default
-set background=light
-
-" modifications for iceberg colorscheme
-" hi! StatusLine gui=reverse guibg=#E4AA80 guifg=#0f1117
-" hi! StatusLineTerm gui=reverse guibg=#E4AA80 guifg=#0f1117
-" hi! StatusLineNC gui=reverse guibg=#3e445e guifg=#0f1117
-" hi! TabLine gui=NONE guibg=#0f1117 guifg=#3e445e
-" hi! TabLineFill gui=reverse guibg=#3e445e guifg=#0f1117
-" hi! TabLineSel gui=NONE guibg=#E4AA80 guifg=#0f1117
-
-" modifications for default colorscheme
-hi! StatusLine gui=reverse guibg=#555753 guifg=#EEEEEC
-hi! StatusLineTerm gui=reverse guibg=#555753 guifg=#EEEEEC
-hi! StatusLineNC gui=reverse guibg=#D3D7CF guifg=#EEEEEC
-hi! TabLine gui=NONE guibg=#EEEEEC guifg=#555753
-hi! TabLineFill gui=reverse guibg=#000000 guifg=#EEEEEC
-hi! TabLineSel gui=NONE guibg=#C4A000 guifg=#000000
+colorscheme gitty-up
 
 " use <Space> as a map leader, because as a command it's redundant anyway,
 " and because it's easy to reach on all keyboard layouts (a big advantage over
@@ -58,6 +40,12 @@ nmap <Leader>rr <Plug>ReplaceWithRegisterLine
 xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
 
 nmap <Leader>h :nohlsearch<CR>
+
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nmap <Leader>c :call SynGroup()<CR>
 
 set undofile
 set undodir=~/.vim/undo

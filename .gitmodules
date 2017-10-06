@@ -62,3 +62,6 @@
 	path = zplug
 	url = https://github.com/zplug/zplug
         ignore = dirty
+[submodule "vim/pack/colors/opt/base16"]
+	path = vim/pack/colors/opt/base16
+	url = https://github.com/chriskempson/base16-vim.git
