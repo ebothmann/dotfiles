@@ -76,9 +76,9 @@ fi
 
 # load plug-ins using zplug
 source "${DOTFILES_PATH}/zplug/init.zsh"
-zplug "rupa/z", at:772db28548  # pull-request (#199) commit fixes #198
+zplug "rupa/z", use:"z.sh" at:772db28548  # pull-request (#199) commit fixes #198
 zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+zplug "sindresorhus/pure", use:pure.zsh, as:theme
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 
