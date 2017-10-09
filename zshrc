@@ -40,6 +40,7 @@ function tproj() { mkdir -p "$HOME/Projekte/$@" && tmux new-session -c "$HOME/Pr
 alias svim='vim -u NONE -N'  # open vim without ~/.vimrc or defaults.vim, but enable nocompatible
 alias killz='kill -9 %%'
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+alias ag="ag --color-line-number='' --color-match='1;37;44' --color-path='1;31'"
 
 # shortcuts: version control
 alias ga='git add'

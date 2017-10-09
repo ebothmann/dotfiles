@@ -9,13 +9,23 @@ set termguicolors
 
 " default highlighting groups
 hi ColorColumn guibg=#ffffff
+hi CursorLine cterm=NONE gui=NONE guibg=#E9E8E0
+hi Directory cterm=bold gui=bold guifg=#7766CC
+hi DiffAdd guibg=#D5F9DB
+hi DiffChange guibg=#FEFCDD
+hi DiffDelete guibg=#F5BDA4
+hi DiffText guibg=#ffffff guifg=#CD362C
 hi VertSplit guifg=#f0efe7 guibg=#fcfcfa
+hi Folded cterm=italic guifg=#7766CC guibg=#ffffff
+hi! link FoldColumn LineNr
 hi LineNr guifg=#9a9994 guibg=#ffffff
 hi MatchParen cterm=bold gui=bold guifg=#cd362c guibg=#ffffff
 hi NonText guifg=#9a9994
 hi Normal guifg=#4e443c
 hi Pmenu guibg=#ffffff
 hi! link PmenuSel MatchParen
+hi PmenuSbar guibg=#f0efe7
+hi PmenuThumb guibg=#cd362c
 hi Search guibg=#fffb00
 hi SpellBad cterm=undercurl gui=undercurl guifg=#ea4c33
 hi! link SpellCap SpellBad
