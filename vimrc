@@ -40,6 +40,12 @@ function! ShowSyntaxGroupUnderCursor()
 endfun
 nmap <Leader>c :call ShowSyntaxGroupUnderCursor()<CR>
 
+" auto-commands
+augroup vimrc
+	au!
+	au FileType gitcommit set spell
+augroup END
+
 " configure ReplaceWithRegister plug-in to prevent it from overriding gr and
 " gR mappings
 nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
@@ -80,5 +86,8 @@ let g:vimwiki_list = [{
 			\ 'template_path': '~/wiki/templates/',
 			\ 'template_default': 'def_template',
 			\ 'template_ext': '.html'}]
+
+" configure SpellCheck
+nmap <Leader>s :SpellCheck<cr>
 
 " vim: ts=4 sw=4
