@@ -1,4 +1,4 @@
-" do not bother with old versions
+" fall back to sensible defaults old versions
 if v:version < 800
 	source $HOME/.vim/sensible/plugin/sensible.vim
 	finish
@@ -15,40 +15,36 @@ augroup END
 
 set splitbelow
 set splitright
-
 set hidden
-
 set hlsearch
-
 set wildignorecase
-set wildmode=longest,full
-
+set wildmode=longest:full,full
 set laststatus=2
 set noshowmode
+set undofile
+set undodir=~/.vim/undo
+set spelllang=en_gb  " use de_20 for new German spelling
 
 colorscheme gitty-up
 
-" use <Space> as a map leader, because as a command it's redundant anyway,
-" and because it's easy to reach on all keyboard layouts (a big advantage over
+" use <Space> as a map leader, because as a command it's redundant anyway, and
+" because it's easy to reach on *all* keyboard layouts (a big advantage over
 " the default map leader being the backslash)
 let mapleader = "\<Space>"
+
+" functions and aliases
+nmap <Leader>h :nohlsearch<CR>
+function! ShowSyntaxGroupUnderCursor()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nmap <Leader>c :call ShowSyntaxGroupUnderCursor()<CR>
 
 " configure ReplaceWithRegister plug-in to prevent it from overriding gr and
 " gR mappings
 nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
 nmap <Leader>rr <Plug>ReplaceWithRegisterLine
 xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
-
-nmap <Leader>h :nohlsearch<CR>
-
-function! SynGroup()
-    let l:s = synID(line('.'), col('.'), 1)
-    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-nmap <Leader>c :call SynGroup()<CR>
-
-set undofile
-set undodir=~/.vim/undo
 
 " configure localvimrc
 let g:localvimrc_sandbox=0
@@ -63,7 +59,8 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 " configure rooter
-let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', 'configure.ac']
+let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/',
+			\ 'configure.ac']
 
 " configure implementation/header switcher
 nmap <silent> <Leader>of :FSHere<cr>
@@ -77,7 +74,8 @@ nmap <silent> <Leader>oj :FSBelow<cr>
 nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 " configure wiki
-let g:vimwiki_list = [{'path': '~/wiki/text/',
+let g:vimwiki_list = [{
+			\ 'path': '~/wiki/text/',
 			\ 'path_html': '~/wiki/html/',
 			\ 'template_path': '~/wiki/templates/',
 			\ 'template_default': 'def_template',
