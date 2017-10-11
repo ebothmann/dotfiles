@@ -27,6 +27,7 @@ hi! link PmenuSel MatchParen
 hi PmenuSbar guibg=#f0efe7
 hi PmenuThumb guibg=#cd362c
 hi Search guibg=#fffb00
+hi! link SpecialKey NonText
 hi SpellBad cterm=undercurl gui=undercurl guifg=#ea4c33
 hi! link SpellCap SpellBad
 hi! link SpellCap SpellLocal
