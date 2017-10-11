@@ -24,6 +24,8 @@ set noshowmode
 set undofile
 set undodir=~/.vim/undo
 set spelllang=en_gb  " use de_20 for new German spelling
+set listchars=eol:¬,tab:⇥\ ,trail:·,nbsp:~
+set list
 
 colorscheme gitty-up
 
