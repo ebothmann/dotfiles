@@ -46,6 +46,7 @@ nmap <Leader>c :call ShowSyntaxGroupUnderCursor()<CR>
 augroup vimrc
 	au!
 	au FileType gitcommit set spell
+	au FileType svn set spell
 augroup END
 
 " configure ReplaceWithRegister plug-in to prevent it from overriding gr and
