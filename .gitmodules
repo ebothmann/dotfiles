@@ -74,3 +74,7 @@
 	path = vim/pack/lib/start/ingo
 	url = https://github.com/inkarkat/vim-ingo-library.git
         ignore = dirty
+[submodule "vim/pack/colors/start/colortemplate"]
+	path = vim/pack/colors/start/colortemplate
+	url = https://github.com/lifepillar/vim-colortemplate.git
+        ignore = dirty

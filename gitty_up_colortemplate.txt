@@ -1,0 +1,142 @@
+# vim: ft=colortemplate fdm=marker
+
+# Information {{{
+# Mandatory
+Full name:   Gitty up?!
+Short name:  gitty_up
+Author:      Enrico Bothmann <enrico.bothmann@ed.ac.uk>
+Maintainer:  Enrico Bothmann <enrico.bothmann@ed.ac.uk>
+# Optional
+Website:     https://github.com/ebothmann/gitty-up
+Description: An uncompromising and energetic light colour scheme
+# }}}
+
+# Color palette {{{
+# Color name                GUI                  Base256    Base16 (optional)
+Color: black                #4e443c               59        Black
+Color: red                  #cd362c              166        DarkRed
+Color: green                #28ca41               41        DarkGreen
+Color: yellow               #fffb00              226        DarkYellow
+Color: brown                #885555               95        DarkBlue
+Color: darkred              #9a261e               88        DarkMagenta
+Color: purple               #7766cc               98        DarkCyan
+Color: mediumgrey           #e9e8e0              253        LightGrey
+Color: darkgrey             #9a9994              102        DarkGrey
+Color: verylightred         #f5bda4              217        LightRed
+Color: lightgreen           #d5f9db              194        LightGreen
+Color: lightyellow          #fefcdd              229        LightYellow
+Color: blue                 #b2d7fd              153        LightBlue
+Color: lightred             #ea4c33              167        LightMagenta
+Color: cyan                 #3988a6               67        LightCyan
+Color: silver               #fcfcfa              231        White
+
+Color: white                #ffffff              231        White
+Color: lightgrey            #f0efe7              255        LightGrey
+# }}}
+
+Background: light
+
+# Default highlight groups {{{
+# Comment out (do not delete) the definitions that you want to keep at their default.
+# Group              Foreground        Background        Attributes
+Normal               black             silver
+ColorColumn          fg                white
+#Conceal              none              none
+#Cursor               black             white
+#CursorColumn         black             white
+CursorLine           fg                mediumgrey        none
+#CursorLineNr         black             white
+DiffAdd              fg                lightgreen
+DiffChange           fg                lightyellow
+DiffDelete           fg                verylightred
+DiffText             white             red
+Directory            purple            bg                bold
+#EndOfBuffer          black             white
+#ErrorMsg             black             white             reverse
+FoldColumn       ->  LineNr
+Folded               purple            white             italic
+#IncSearch            black             white             t=reverse g=standout
+LineNr               darkgrey          white
+MatchParen           red               white             bold
+#ModeMsg              black             white
+#MoreMsg              black             white
+NonText              darkgrey          bg
+Pmenu                fg                white
+PmenuSbar            fg                lightgrey
+PmenuSel         ->  MatchParen
+PmenuThumb           black             white
+#Question             black             white
+#QuickFixLine     ->  Search
+Search               fg                yellow
+#SignColumn           black             white
+SpecialKey       ->  NonText
+SpellBad             lightred          bg                undercurl
+SpellCap         ->  SpellBad
+SpellLocal       ->  SpellBad
+SpellRare        ->  lighred
+StatusLine           black             lightgrey         none
+StatusLineNC         darkgrey          lightgrey         none
+#StatusLineTerm    -> StatusLine
+#StatusLineTermNC  -> StatusLineNC
+TabLine              black             mediumgrey        none
+TabLineFill          fg                mediumgrey        none
+TabLineSel        -> MatchParen
+Title                brown             bg                bold
+VertSplit            lightgrey         silver
+Visual               black             blue
+#VisualNOS            black             white
+#WarningMsg           black             white
+WildMenu          -> MatchParen
+# Other conventional group names (see `:help group-name`)
+#Boolean           -> Constant
+#Character         -> Constant
+Comment              brown             white             italic
+#Conditional       -> Statement
+Constant             purple            bg                bold
+#Define            -> PreProc
+#Debug             -> Special
+#Delimiter         -> Special
+#Error             -> Todo
+#Exception         -> Statement
+#Float             -> Constant
+#Function          -> Identifier
+#Identifier           black             none
+#Ignore               black             none
+#Include           -> PreProc
+#Keyword           -> Statement
+#Label             -> Statement
+#Macro             -> PreProc
+#Number            -> Constant
+#Operator          -> Statement
+#PreCondit         -> PreProc
+PreProc              green             bg
+#Repeat            -> Statement
+#Special              black             none
+#SpecialChar       -> Special
+#SpecialComment    -> Special
+Statement            darkred           bg                bold
+#StorageClass      -> Type
+#String            -> Constant
+#Structure         -> Type
+#Tag               -> Special
+Todo                 none              verylightred
+Type                 cyan              bg
+#Typedef           -> Type
+#Underlined           black             none
+# See `:help lCursor`
+#lCursor           -> Cursor
+# See `:help CursorIM`
+#CursorIM             none              fg
+# }}}
+
+# Additional highlight groups {{{
+# Add additional highlight groups here if you want
+# }}}
+
+# Plugin specific highlight groups {{{
+# Add plugin specific highlight groups here if you want
+# }}}
+
+# Filetype specific highlight groups {{{
+# Add filetype specific highlight groups here if you want
+# }}}

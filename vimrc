@@ -27,7 +27,8 @@ set spelllang=en_gb  " use de_20 for new German spelling
 set listchars=eol:¬,tab:⇥\ ,trail:·,nbsp:~
 set list
 
-colorscheme gitty-up
+set termguicolors
+colorscheme gitty_up
 
 " use <Space> as a map leader, because as a command it's redundant anyway, and
 " because it's easy to reach on *all* keyboard layouts (a big advantage over
