@@ -30,7 +30,7 @@ hi Search guibg=#fffb00
 hi! link SpecialKey NonText
 hi SpellBad cterm=undercurl gui=undercurl guifg=#ea4c33
 hi! link SpellCap SpellBad
-hi! link SpellCap SpellLocal
+hi! link SpellLocal SpellBad
 hi SpellRare guifg=#ea4c33
 hi StatusLine cterm=NONE gui=NONE guifg=#4e443c guibg=#f0efe7
 hi StatusLineNC cterm=NONE gui=NONE guifg=#9a9994 guibg=#f0efe7
