@@ -1,6 +1,8 @@
 DOTFILES_PATH="${HOME}/.dotfiles"
 
-path=("${DOTFILES_PATH}/bin" $path)
+path=("${DOTFILES_PATH}/bin"
+      "${DOTFILES_PATH}/vim/pack/files/start/recover/contrib"
+      $path)
 export PATH
 
 # editor
