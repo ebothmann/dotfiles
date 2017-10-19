@@ -96,6 +96,13 @@ nmap <Leader>s :SpellCheck<cr>
 
 " load fzf
 set rtp+=/usr/local/opt/fzf
-nmap <silent> <Leader>f :FZF<cr>
+nmap <silent> <Leader>ff :Files<cr>
+nmap <silent> <Leader>fb :Buffers<cr>
+nmap <silent> <Leader>fa :Ag<cr>
+nmap <silent> <Leader>fl :BLines<cr>
+nmap <silent> <Leader>fL :Lines<cr>
+nmap <silent> <Leader>ft :BTags<cr>
+nmap <silent> <Leader>fT :Tags<cr>
+nmap <silent> <Leader>fh :Helptags<cr>
 
 " vim: ts=4 sw=4
