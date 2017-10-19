@@ -94,4 +94,8 @@ let g:vimwiki_list = [{
 " configure SpellCheck
 nmap <Leader>s :SpellCheck<cr>
 
+" load fzf
+set rtp+=/usr/local/opt/fzf
+nmap <silent> <Leader>f :FZF<cr>
+
 " vim: ts=4 sw=4
