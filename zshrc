@@ -96,4 +96,13 @@ bindkey -M vicmd 'j' history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# load and configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
+_fzf_compgen_path() {
+  ag -g "" "$1" | with-dir "$1"
+}
+_fzf_compgen_dir() {
+  ag -g "" "$1" | only-dir "$1"
+}
+bindkey '^f' fzf-cd-widget
