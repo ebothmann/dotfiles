@@ -17,6 +17,8 @@ set splitbelow
 set splitright
 set hidden
 set hlsearch
+set ignorecase
+set smartcase
 set wildignorecase
 set wildmode=longest:full,full
 set laststatus=2
