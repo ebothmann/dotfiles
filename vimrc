@@ -50,59 +50,6 @@ augroup vimrc
 	au FileType svn set spell
 augroup END
 
-" configure ReplaceWithRegister plug-in to prevent it from overriding gr and
-" gR mappings
-nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
-nmap <Leader>rr <Plug>ReplaceWithRegisterLine
-xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
-
-" configure localvimrc
-let g:localvimrc_sandbox=0
-let g:localvimrc_persistent=2
-let g:localvimrc_event=[ "BufEnter" ]  " otherwise 'vim <dir>' does not trigger
-
-" configure tmux-navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
-" configure rooter
-let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/',
-			\ 'configure.ac']
-
-" configure implementation/header switcher
-nmap <silent> <Leader>of :FSHere<cr>
-nmap <silent> <Leader>ol :FSRight<cr>
-nmap <silent> <Leader>oL :FSSplitRight<cr>
-nmap <silent> <Leader>oh :FSLeft<cr>
-nmap <silent> <Leader>oH :FSSplitLeft<cr>
-nmap <silent> <Leader>ok :FSAbove<cr>
-nmap <silent> <Leader>oK :FSSplitAbove<cr>
-nmap <silent> <Leader>oj :FSBelow<cr>
-nmap <silent> <Leader>oJ :FSSplitBelow<cr>
-
-" configure wiki
-let g:vimwiki_list = [{
-			\ 'path': '~/wiki/text/',
-			\ 'path_html': '~/wiki/html/',
-			\ 'template_path': '~/wiki/templates/',
-			\ 'template_default': 'def_template',
-			\ 'template_ext': '.html'}]
-
-" configure SpellCheck
-nmap <Leader>s :SpellCheck<cr>
-
-" load fzf
-set rtp+=/usr/local/opt/fzf
-nmap <silent> <Leader>ff :Files<cr>
-nmap <silent> <Leader>fb :Buffers<cr>
-nmap <silent> <Leader>fa :Ag<cr>
-nmap <silent> <Leader>fl :BLines<cr>
-nmap <silent> <Leader>fL :Lines<cr>
-nmap <silent> <Leader>ft :BTags<cr>
-nmap <silent> <Leader>fT :Tags<cr>
-nmap <silent> <Leader>fh :Helptags<cr>
+source ~/.vim/packages.vim
 
 " vim: ts=4 sw=4

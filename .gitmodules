@@ -2,82 +2,14 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
         ignore = dirty
-[submodule "vim/pack/navigation/start/vim-tmux-navigator"]
-	path = vim/pack/navigation/start/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
-        ignore = dirty
-[submodule "vim/pack/editing/start/ReplaceWithRegister"]
-	path = vim/pack/editing/start/ReplaceWithRegister
-	url = https://github.com/vim-scripts/ReplaceWithRegister
-        ignore = dirty
-[submodule "vim/pack/editing/start/localvimrc"]
-	path = vim/pack/editing/start/localvimrc
-	url = https://github.com/embear/vim-localvimrc
-        ignore = dirty
-[submodule "vim/pack/mappings/start/unimpaired"]
-	path = vim/pack/mappings/start/unimpaired
-	url = https://github.com/tpope/vim-unimpaired
-        ignore = dirty
-[submodule "vim/pack/navigation/start/rooter"]
-	path = vim/pack/navigation/start/rooter
-	url = https://github.com/airblade/vim-rooter.git
-        ignore = dirty
-[submodule "vim/pack/navigation/start/lastplace"]
-	path = vim/pack/navigation/start/lastplace
-	url = https://github.com/vim-scripts/vim-lastplace.git
-        ignore = dirty
-[submodule "vim/pack/navigation/start/fswitch"]
-	path = vim/pack/navigation/start/fswitch
-	url = https://github.com/derekwyatt/vim-fswitch.git
-        ignore = dirty
-[submodule "vim/pack/navigation/wiki"]
-	path = vim/pack/navigation/start/wiki
-	url = https://github.com/vimwiki/vimwiki.git
-        ignore = dirty
 [submodule "vim/sensible"]
 	path = vim/sensible
 	url = https://github.com/tpope/vim-sensible.git
-        ignore = dirty
-[submodule "vim/pack/editing/start/surround"]
-	path = vim/pack/editing/start/surround
-	url = https://github.com/tpope/vim-surround.git
-        ignore = dirty
-[submodule "vim/pack/navigation/start/randomtag"]
-	path = vim/pack/navigation/start/randomtag
-	url = https://github.com/mhinz/vim-randomtag.git
-        ignore = dirty
-[submodule "vim/pack/files/start/recover"]
-	path = vim/pack/files/start/recover
-	url = https://github.com/chrisbra/Recover.vim.git
-        ignore = dirty
-[submodule "vim/pack/editing/start/repeat"]
-	path = vim/pack/editing/start/repeat
-	url = https://github.com/tpope/vim-repeat.git
-        ignore = dirty
-[submodule "vim/pack/editing/start/argumentative"]
-	path = vim/pack/editing/start/argumentative
-	url = https://github.com/PeterRincker/vim-argumentative.git
         ignore = dirty
 [submodule "zplug"]
 	path = zplug
 	url = https://github.com/zplug/zplug
         ignore = dirty
-[submodule "vim/pack/colors/opt/base16"]
-	path = vim/pack/colors/opt/base16
-	url = https://github.com/chriskempson/base16-vim.git
-        ignore = dirty
-[submodule "vim/pack/editing/start/SpellCheck"]
-	path = vim/pack/editing/start/SpellCheck
-	url = https://github.com/inkarkat/vim-SpellCheck.git
-        ignore = dirty
-[submodule "vim/pack/lib/start/ingo"]
-	path = vim/pack/lib/start/ingo
-	url = https://github.com/inkarkat/vim-ingo-library.git
-        ignore = dirty
-[submodule "vim/pack/colors/start/colortemplate"]
-	path = vim/pack/colors/start/colortemplate
-	url = https://github.com/lifepillar/vim-colortemplate.git
-        ignore = dirty
-[submodule "fzf.vim"]
-	path = vim/pack/navigation/start/fzf
-	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/pack/package_management/opt/minpac"]
+	path = vim/pack/minpac/opt/minpac
+	url = https://github.com/k-takata/minpac.git
