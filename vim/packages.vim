@@ -1,3 +1,8 @@
+" configure ack to use ag if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " configure vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -72,6 +77,7 @@ call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('vim-scripts/vim-lastplace')
 call minpac#add('derekwyatt/vim-fswitch')
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('mileszs/ack.vim')
 "call minpac#add('airblade/vim-rooter')
 
 " editing
